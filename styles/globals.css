@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+html, body, #__next { height: 100%; }
+body { @apply antialiased text-gray-800 bg-white; }
+
+/* Layout helpers */
+.container-responsive { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+/* Typography scale */
+.heading-1 { @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight; }
+.heading-2 { @apply text-2xl sm:text-3xl md:text-4xl font-semibold; }
+.heading-3 { @apply text-xl sm:text-2xl font-semibold; }
+.prose-basic { @apply prose prose-blue max-w-none; }
+
+
