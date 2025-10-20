@@ -8,6 +8,7 @@ Next.js + TypeScript + Tailwind CSS example with microCMS integration.
 
 ```bash
 npm install
+npm install @tailwindcss/line-clamp --save
 ```
 
 2. Create `.env.local`
