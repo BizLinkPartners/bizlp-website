@@ -1,59 +1,106 @@
 import Layout from '@/components/Layout';
+import StartupAnimation from '@/components/StartupAnimation';
+import ScrollAnimation from '@/components/ScrollAnimation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { GetStaticProps } from 'next';
 import { fetchNewsList, News } from '../lib/microcms';
+import { useState, useEffect } from 'react';
 
 type Props = {
   latestNews: News[];
 };
 
 export default function Home({ latestNews }: Props) {
+  const [showStartupAnimation, setShowStartupAnimation] = useState(true);
+
+  useEffect(() => {
+    // Check if user has seen the animation before
+    const hasSeenAnimation = localStorage.getItem('hasSeenStartupAnimation');
+    if (hasSeenAnimation) {
+      setShowStartupAnimation(false);
+    }
+  }, []);
+
+  const handleAnimationComplete = () => {
+    setShowStartupAnimation(false);
+    localStorage.setItem('hasSeenStartupAnimation', 'true');
+  };
+
+  if (showStartupAnimation) {
+    return <StartupAnimation onComplete={handleAnimationComplete} />;
+  }
+
   return (
-    <Layout title="BizLP | ホーム" description="Next.js + microCMS サンプル">
-      {/* TOP画像セクション（画面いっぱい） */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <Image
-          src="/image/TOP.png"
-          alt="TOP画像"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* オーバーレイ */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        
-        {/* ヒーローセクション（TOP画像の上に重ねる） */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="container-responsive w-full">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 lg:p-12 w-full max-w-6xl mx-auto">
-              {/* 最新ニュースセクション */}
-              <div className="w-full">
-                <h2 className="heading-2 mb-6 sm:mb-8 text-center">最新ニュース</h2>
-                <div className="grid gap-4 sm:gap-6 md:grid-cols-1 lg:grid-cols-1">
-                  {latestNews.map((n) => (
-                    <div key={n.id} className="bg-white rounded-xl border p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
-                      <Link href={`/news/${n.id}`} className="block">
-                        <h3 className="font-semibold text-base sm:text-lg mb-2 hover:text-brand-600 transition-colors line-clamp-2">
-                          {n.title}
+    <Layout title="BizLP | ホーム" description="モダンなビジネスソリューション">
+      {/* Hero Section - Minimal Monochrome Design */}
+      <section className="min-h-screen flex items-center justify-center bg-white">
+        <div className="container-responsive text-center">
+          <ScrollAnimation>
+            <h1 className="heading-1 mb-8 text-black">
+              BizLP
+            </h1>
+          </ScrollAnimation>
+          
+          <ScrollAnimation delay={0.2}>
+            <p className="heading-3 text-gray-600 mb-16 max-w-2xl mx-auto">
+              Modern Business Solutions
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation delay={0.4}>
+            <p className="body-text text-gray-500 mb-20 max-w-xl mx-auto">
+              モダンなテクノロジーと洗練されたデザインで、<br />
+              ビジネスの未来を創造します。
+            </p>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="py-24 bg-white">
+        <div className="container-responsive">
+          <ScrollAnimation>
+            <h2 className="heading-2 text-center mb-16 text-black">
+              Latest News
+            </h2>
+          </ScrollAnimation>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-12">
+              {latestNews.slice(0, 3).map((news, index) => (
+                <ScrollAnimation key={news.id} delay={index * 0.1}>
+                  <Link href={`/news/${news.id}`} className="block group">
+                    <div className="border-b border-gray-100 pb-8 group-hover:border-gray-300 transition-colors">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                        <h3 className="heading-3 text-black group-hover:text-gray-600 transition-colors">
+                          {news.title}
                         </h3>
-                        <div className="text-xs sm:text-sm text-gray-500 mb-3">
-                          {n.eventDate ? new Date(n.eventDate).toLocaleString('ja-JP') : new Date(n.publishedAt).toLocaleString('ja-JP')}
-                        </div>
-                        <p className="text-sm sm:text-base text-gray-700 line-clamp-3">
-                          {n.description}
-                        </p>
-                      </Link>
+                        <span className="small-text mt-2 sm:mt-0 sm:ml-4">
+                          {news.eventDate 
+                            ? new Date(news.eventDate).toLocaleDateString('ja-JP')
+                            : new Date(news.publishedAt).toLocaleDateString('ja-JP')
+                          }
+                        </span>
+                      </div>
+                      <p className="body-text text-gray-500">
+                        {news.description}
+                      </p>
                     </div>
-                  ))}
-                </div>
-                <div className="text-center mt-6 sm:mt-8">
-                  <Link href="/news" className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-md bg-brand-600 text-white hover:bg-brand-700 transition-colors text-sm sm:text-base">
-                    ニュース一覧を見る
                   </Link>
-                </div>
-              </div>
+                </ScrollAnimation>
+              ))}
             </div>
+            
+            <ScrollAnimation delay={0.4}>
+              <div className="text-center mt-16">
+                <Link 
+                  href="/news" 
+                  className="text-black border-b border-gray-300 pb-1 hover:border-black transition-colors font-light tracking-wide"
+                >
+                  View All News
+                </Link>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

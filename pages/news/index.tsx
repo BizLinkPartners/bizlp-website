@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout';
+import ScrollAnimation from '@/components/ScrollAnimation';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { fetchNewsList, News } from '@/lib/microcms';
@@ -9,18 +10,42 @@ type Props = {
 
 export default function NewsIndex({ news }: Props) {
   return (
-    <Layout title="ニュース一覧">
-      <div className="container-responsive py-12">
-        <h1 className="heading-2 mb-6">ニュース</h1>
-        <ul className="divide-y">
-          {news.map((n) => (
-            <li key={n.id} className="py-5">
-              <Link href={`/news/${n.id}`} className="text-lg font-semibold hover:text-brand-600">{n.title}</Link>
-              <div className="text-sm text-gray-500">{n.eventDate ? new Date(n.eventDate).toLocaleString('ja-JP') : new Date(n.publishedAt).toLocaleString('ja-JP')}</div>
-              <p className="mt-2 text-gray-700">{n.description}</p>
-            </li>
-          ))}
-        </ul>
+    <Layout title="News | BizLP" description="Latest news and updates">
+      <div className="min-h-screen bg-white">
+        <div className="container-responsive py-24">
+          <ScrollAnimation>
+            <h1 className="heading-2 text-center mb-20 text-black">
+              News
+            </h1>
+          </ScrollAnimation>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-16">
+              {news.map((newsItem, index) => (
+                <ScrollAnimation key={newsItem.id} delay={index * 0.1}>
+                  <Link href={`/news/${newsItem.id}`} className="block group">
+                    <article className="border-b border-gray-100 pb-12 group-hover:border-gray-300 transition-colors">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
+                        <h2 className="heading-3 text-black group-hover:text-gray-600 transition-colors mb-4 sm:mb-0">
+                          {newsItem.title}
+                        </h2>
+                        <time className="small-text sm:ml-8 sm:whitespace-nowrap">
+                          {newsItem.eventDate 
+                            ? new Date(newsItem.eventDate).toLocaleDateString('ja-JP')
+                            : new Date(newsItem.publishedAt).toLocaleDateString('ja-JP')
+                          }
+                        </time>
+                      </div>
+                      <p className="body-text text-gray-500">
+                        {newsItem.description}
+                      </p>
+                    </article>
+                  </Link>
+                </ScrollAnimation>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   );

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 type LayoutProps = {
   title?: string;
@@ -9,42 +10,151 @@ type LayoutProps = {
 };
 
 export default function Layout({ title = 'BizLP', description = 'Business landing site', children }: LayoutProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => setIsMenuOpen(false);
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => router.events.off('routeChangeStart', handleRouteChange);
+  }, [router.events]);
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
       </Head>
-      <header className="border-b bg-blue-900/90 backdrop-blur supports-[backdrop-filter]:bg-blue-900/80 sticky top-0 z-30">
-        <div className="container-responsive flex items-center justify-between h-16">
-          <Link href="/" className="text-white font-bold text-lg">BizLP</Link>
-          <nav>
-            <ul className="hidden md:flex gap-6 text-sm font-medium">
-              <li><Link href="/" className="text-white hover:text-blue-200">Home</Link></li>
-              <li><Link href="/news" className="text-white hover:text-blue-200">News</Link></li>
-              <li><Link href="/company" className="text-white hover:text-blue-200">Company</Link></li>
-              <li><Link href="/contact" className="text-white hover:text-blue-200">Contact</Link></li>
+      
+      {/* Fixed Header - Monochrome Design */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+        <div className="container-responsive flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="text-black font-light text-xl tracking-wider hover-fade transition-smooth">
+            BizLP
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-12">
+              <li>
+                <Link 
+                  href="/" 
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/news" 
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/news' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/company" 
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/company' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  Company
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/contact" 
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
-            <details className="md:hidden">
-              <summary className="cursor-pointer select-none text-white">Menu</summary>
-              <ul className="mt-2 space-y-2 bg-blue-800 p-2 rounded">
-                <li><Link href="/" className="block text-white hover:text-blue-200">Home</Link></li>
-                <li><Link href="/news" className="block text-white hover:text-blue-200">News</Link></li>
-                <li><Link href="/company" className="block text-white hover:text-blue-200">Company</Link></li>
-                <li><Link href="/contact" className="block text-white hover:text-blue-200">Contact</Link></li>
-              </ul>
-            </details>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-black"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+            </div>
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100">
+            <nav className="container-responsive py-6">
+              <ul className="space-y-6">
+                <li>
+                  <Link 
+                    href="/" 
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/news" 
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/news' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    New
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/company" 
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/company' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    Company
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/contact" 
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        )}
       </header>
-      <main className="flex-1">{children}</main>
-      <footer className="border-t mt-16 bg-blue-900">
-        <div className="container-responsive py-8 text-sm text-white flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} BizLP Inc.</p>
-          <p className="space-x-4">
-            <Link href="/privacy" className="hover:text-blue-200">Privacy</Link>
-            <Link href="/terms" className="hover:text-blue-200">Terms</Link>
+
+      {/* Main Content with Header Spacing */}
+      <main className="flex-1 pt-20">{children}</main>
+      
+      {/* Minimal Footer */}
+      <footer className="bg-white py-12">
+        <div className="container-responsive text-center">
+          <p className="text-sm text-gray-500 font-light tracking-wide">
+            © {new Date().getFullYear()} BizLP Inc.
           </p>
         </div>
       </footer>
