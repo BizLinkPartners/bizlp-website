@@ -9,6 +9,7 @@ Next.js + TypeScript + Tailwind CSS example with microCMS integration.
 ```bash
 npm install
 npm install @tailwindcss/line-clamp --save
+npm install framer-motion
 ```
 
 2. Create `.env.local`

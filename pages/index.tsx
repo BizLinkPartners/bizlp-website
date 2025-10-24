@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { fetchNewsList, News } from '../lib/microcms';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 type Props = {
   latestNews: News[];
@@ -35,24 +36,66 @@ export default function Home({ latestNews }: Props) {
       {/* Hero Section - Minimal Monochrome Design */}
       <section className="min-h-screen flex items-center justify-center bg-white">
         <div className="container-responsive text-center">
-          <ScrollAnimation>
-            <h1 className="heading-1 mb-8 text-black">
+          {/* Company Name - Dramatic Scale and Bounce Animation */}
+          <motion.div
+            initial={{ scale: 0.3, opacity: 0, y: -100 }}
+            animate={{ 
+              scale: [0.3, 1.2, 1],
+              opacity: [0, 1, 1],
+              y: [-100, 0, 0]
+            }}
+            transition={{ 
+              duration: 2.0, 
+              ease: "easeOut",
+              delay: 0.2,
+              times: [0, 0.6, 1]
+            }}
+            className="mb-8"
+          >
+            <h1 className="heading-1 text-black">
               BizLP
             </h1>
-          </ScrollAnimation>
+          </motion.div>
           
-          <ScrollAnimation delay={0.2}>
-            <p className="heading-3 text-gray-600 mb-16 max-w-2xl mx-auto">
+          {/* Subtitle - Wave Animation */}
+          <motion.div
+            initial={{ y: 100, opacity: 0, x: -50 }}
+            animate={{ 
+              y: [100, 0, 0],
+              opacity: [0, 1, 1],
+              x: [-50, 0, 0]
+            }}
+            transition={{ 
+              duration: 1.5, 
+              ease: "easeOut",
+              delay: 0.8 
+            }}
+            className="mb-16"
+          >
+            <p className="heading-3 text-gray-600 max-w-2xl mx-auto">
               Modern Business Solutions
             </p>
-          </ScrollAnimation>
+          </motion.div>
 
-          <ScrollAnimation delay={0.4}>
-            <p className="body-text text-gray-500 mb-20 max-w-xl mx-auto">
+          {/* Description - Staggered Character Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ 
+              opacity: [0, 1],
+              y: [80, 0]
+            }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut",
+              delay: 1.4 
+            }}
+            className="mb-20"
+          >
+            <p className="body-text text-gray-500 max-w-xl mx-auto">
               モダンなテクノロジーと洗練されたデザインで、<br />
               ビジネスの未来を創造します。
             </p>
-          </ScrollAnimation>
+          </motion.div>
         </div>
       </section>
 

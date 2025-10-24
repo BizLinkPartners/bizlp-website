@@ -39,14 +39,15 @@ export default function StartupAnimation({ onComplete }: StartupAnimationProps) 
             }}
             className="relative"
           >
-            {/* Main company name that scales up */}
+            {/* Main company name that scales up dramatically */}
             <motion.div
               initial={{ scale: 1 }}
-              animate={{ scale: 1.2 }}
+              animate={{ scale: [1, 1.5, 1.2] }}
               transition={{ 
-                duration: 0.6, 
+                duration: 1.0, 
                 ease: "easeInOut",
-                delay: 1.2 
+                delay: 1.2,
+                times: [0, 0.5, 1]
               }}
               className="text-6xl sm:text-8xl md:text-9xl font-light tracking-wider text-black"
             >
@@ -67,22 +68,21 @@ export default function StartupAnimation({ onComplete }: StartupAnimationProps) 
                 }}
                 animate={{
                   opacity: [0, 1, 1, 1, 0],
-                  scale: [1, 1.5, 1.5, 1, 1],
+                  scale: [1, 1.8, 1.8, 1, 1],
                   x: [
                     '-50%',
                     '-50%',
-                    `${(index - letters.length / 2) * 100}px`,
-                    `${(index - letters.length / 2) * 100}px`,
+                    `${(index - letters.length / 2) * 150}px`,
+                    `${(index - letters.length / 2) * 150}px`,
                     '-50%'
                   ],
                   y: [
                     '-50%',
                     '-50%',
-                    `${Math.sin(index) * 50}px`,
-                    `${Math.sin(index) * 50}px`,
+                    `${Math.sin(index) * 80}px`,
+                    `${Math.sin(index) * 80}px`,
                     '-50%'
-                  ],
-                  rotate: [0, 0, 360, 360, 0]
+                  ]
                 }}
                 transition={{
                   duration: 2.5,
