@@ -20,4 +20,16 @@ pnpm-debug.log*
 .idea
 .vscode
 
+# Windows
+desktop.ini
+Thumbs.db
+
+# Backup files
+*-original.*
+*.bak
+*.backup
+
+# Project-specific (internal use only)
+CLAUDE.md
+
 
