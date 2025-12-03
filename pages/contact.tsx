@@ -4,15 +4,40 @@ import { useState } from 'react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'お問い合わせの送信に失敗しました。');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'エラーが発生しました。');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,6 +60,11 @@ export default function Contact() {
           <div className="max-w-2xl mx-auto">
             {!submitted ? (
               <ScrollAnimation delay={0.2}>
+                {error && (
+                  <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded text-red-600 text-sm">
+                    {error}
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-12">
                   <div>
                     <label className="block small-text text-gray-500 mb-4">Name</label>
@@ -79,8 +109,9 @@ export default function Contact() {
                     <button
                       type="submit"
                       className="btn-primary"
+                      disabled={loading}
                     >
-                      Send Message
+                      {loading ? '送信中...' : 'Send Message'}
                     </button>
                   </div>
                 </form>

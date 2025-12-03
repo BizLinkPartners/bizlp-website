@@ -54,10 +54,29 @@ export const getNews = async () => {
     return news;
 }
 
+// デバッグログ出力（開発環境のみ）
+const debugLog = (...args: any[]) => {
+    if (process.env.NODE_ENV === 'development') {
+        console.log(...args);
+    }
+};
+
+// エラーログ出力（開発環境のみ詳細、本番環境は簡潔に）
+const errorLog = (message: string, error: any) => {
+    if (process.env.NODE_ENV === 'development') {
+        console.error(message, error);
+        if (error && typeof error === 'object') {
+            console.error('Full error details:', JSON.stringify(error, null, 2));
+        }
+    } else {
+        console.error(message);
+    }
+};
+
 // お知らせ一覧を取得（ページネーション対応）
 export const fetchNewsList = async (limit: number = 10, offset: number = 0) => {
     try {
-        console.log('Fetching news with:', { limit, offset, serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN });
+        debugLog('Fetching news with:', { limit, offset, serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN });
         const news = await client.getList<News>({
             endpoint: "news",
             queries: {
@@ -66,10 +85,10 @@ export const fetchNewsList = async (limit: number = 10, offset: number = 0) => {
                 orders: '-publishedAt'
             }
         });
-        console.log('News fetched successfully:', news);
+        debugLog('News fetched successfully:', news);
         return news;
     } catch (error) {
-        console.error('Error fetching news:', error);
+        errorLog('Error fetching news:', error);
         throw error;
     }
 }
@@ -95,8 +114,8 @@ export const fetchNewsById = async (contentId: string) => {
 // ブログ一覧を取得（ページネーション対応）
 export const fetchBlogList = async (limit: number = 10, offset: number = 0, categoryId?: string) => {
     try {
-        console.log('Fetching blog with endpoint: blogs');
-        console.log('Service domain:', process.env.MICROCMS_SERVICE_DOMAIN);
+        debugLog('Fetching blog with endpoint: blogs');
+        debugLog('Service domain:', process.env.MICROCMS_SERVICE_DOMAIN);
 
         const queries: any = {
             limit,
@@ -113,11 +132,10 @@ export const fetchBlogList = async (limit: number = 10, offset: number = 0, cate
             endpoint: "blogs",
             queries
         });
-        console.log('Blog fetched successfully:', blog);
+        debugLog('Blog fetched successfully:', blog);
         return blog;
     } catch (error) {
-        console.error('Error fetching blog from endpoint "blogs":', error);
-        console.error('Full error details:', JSON.stringify(error, null, 2));
+        errorLog('Error fetching blog from endpoint "blogs":', error);
         throw error;
     }
 };
@@ -138,18 +156,17 @@ export const fetchBlogById = async (contentId: string) => {
 // カテゴリ一覧を取得
 export const fetchCategories = async () => {
     try {
-        console.log('Fetching categories with endpoint: categories');
+        debugLog('Fetching categories with endpoint: categories');
         const categories = await client.getList<Category>({
             endpoint: "categories",
             queries: {
                 limit: 100
             }
         });
-        console.log('Categories fetched successfully:', categories);
+        debugLog('Categories fetched successfully:', categories);
         return categories;
     } catch (error) {
-        console.error('Error fetching categories from endpoint "categories":', error);
-        console.error('Full error details:', JSON.stringify(error, null, 2));
+        errorLog('Error fetching categories from endpoint "categories":', error);
         throw error;
     }
 };

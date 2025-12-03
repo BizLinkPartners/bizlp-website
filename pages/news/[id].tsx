@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { fetchNewsById, fetchNewsList, News } from '@/lib/microcms';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 type Props = { news: News };
 
@@ -10,7 +11,7 @@ export default function NewsDetail({ news }: Props) {
       <article className="container-responsive py-12">
         <h1 className="heading-2 mb-2">{news.title}</h1>
         <div className="text-sm text-gray-500 mb-6">{news.eventDate ? new Date(news.eventDate).toLocaleString('ja-JP') : new Date(news.publishedAt).toLocaleString('ja-JP')}</div>
-        <div className="prose-basic" dangerouslySetInnerHTML={{ __html: news.body }} />
+        <div className="prose-basic" dangerouslySetInnerHTML={{ __html: sanitizeHtml(news.body) }} />
       </article>
     </Layout>
   );

@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { fetchBlogById, fetchBlogList, Blog } from '@/lib/microcms';
+import { sanitizeHtml } from '@/lib/sanitize';
 import Link from 'next/link';
 
 type Props = { blog: Blog };
@@ -41,7 +42,7 @@ export default function BlogDetail({ blog }: Props) {
 
         {/* 記事本文 */}
         <div className="max-w-3xl mx-auto">
-          <div className="prose-basic" dangerouslySetInnerHTML={{ __html: blog.body }} />
+          <div className="prose-basic" dangerouslySetInnerHTML={{ __html: sanitizeHtml(blog.body) }} />
         </div>
 
         {/* 戻るリンク */}

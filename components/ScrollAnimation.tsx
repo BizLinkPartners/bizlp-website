@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 
 interface ScrollAnimationProps {
@@ -7,10 +7,10 @@ interface ScrollAnimationProps {
   delay?: number;
 }
 
-export default function ScrollAnimation({ 
-  children, 
-  className = '', 
-  delay = 0 
+export default function ScrollAnimation({
+  children,
+  className = '',
+  delay = 0
 }: ScrollAnimationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -18,6 +18,18 @@ export default function ScrollAnimation({
     margin: "-50px",
     amount: 0.3
   });
+
+  // prefers-reduced-motionの設定を確認
+  const shouldReduceMotion = useReducedMotion();
+
+  // アクセシビリティ: モーション低減が有効な場合は、アニメーションをスキップ
+  if (shouldReduceMotion) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
