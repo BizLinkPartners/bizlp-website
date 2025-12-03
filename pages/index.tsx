@@ -1,10 +1,8 @@
 import Layout from '@/components/Layout';
-import StartupAnimation from '@/components/StartupAnimation';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { fetchNewsList, News } from '../lib/microcms';
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 type Props = {
@@ -12,63 +10,44 @@ type Props = {
 };
 
 export default function Home({ latestNews }: Props) {
-  const [showStartupAnimation, setShowStartupAnimation] = useState(true);
-
-  useEffect(() => {
-    // Check if user has seen the animation before
-    const hasSeenAnimation = localStorage.getItem('hasSeenStartupAnimation');
-    if (hasSeenAnimation) {
-      setShowStartupAnimation(false);
-    }
-  }, []);
-
-  const handleAnimationComplete = () => {
-    setShowStartupAnimation(false);
-    localStorage.setItem('hasSeenStartupAnimation', 'true');
-  };
-
-  if (showStartupAnimation) {
-    return <StartupAnimation onComplete={handleAnimationComplete} />;
-  }
 
   return (
     <Layout title="BizLP | ホーム" description="モダンなビジネスソリューション">
       {/* Hero Section - Minimal Monochrome Design */}
-      <section className="min-h-screen flex items-center justify-center bg-white">
+      <section className="min-h-screen flex items-center justify-center bg-white overflow-hidden">
         <div className="container-responsive text-center">
-          {/* Company Name - Dramatic Scale and Bounce Animation */}
+          {/* Company Name - Elegant Fade and Rise */}
           <motion.div
-            initial={{ scale: 0.3, opacity: 0, y: -100 }}
-            animate={{ 
-              scale: [0.3, 1.2, 1],
-              opacity: [0, 1, 1],
-              y: [-100, 0, 0]
-            }}
-            transition={{ 
-              duration: 2.0, 
-              ease: "easeOut",
-              delay: 0.2,
-              times: [0, 0.6, 1]
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.2,
+              ease: [0.25, 0.46, 0.45, 0.94]
             }}
             className="mb-8"
           >
-            <h1 className="heading-1 text-black">
+            <motion.h1
+              className="heading-1 text-black"
+              initial={{ letterSpacing: '0.3em' }}
+              animate={{ letterSpacing: '0.05em' }}
+              transition={{
+                duration: 1.5,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }}
+            >
               BizLP
-            </h1>
+            </motion.h1>
           </motion.div>
-          
-          {/* Subtitle - Wave Animation */}
+
+          {/* Subtitle - Smooth Fade */}
           <motion.div
-            initial={{ y: 100, opacity: 0, x: -50 }}
-            animate={{ 
-              y: [100, 0, 0],
-              opacity: [0, 1, 1],
-              x: [-50, 0, 0]
-            }}
-            transition={{ 
-              duration: 1.5, 
-              ease: "easeOut",
-              delay: 0.8 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.0,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.4
             }}
             className="mb-16"
           >
@@ -77,17 +56,14 @@ export default function Home({ latestNews }: Props) {
             </p>
           </motion.div>
 
-          {/* Description - Staggered Character Animation */}
+          {/* Description - Gentle Fade Up */}
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ 
-              opacity: [0, 1],
-              y: [80, 0]
-            }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut",
-              delay: 1.4 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.0,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              delay: 0.6
             }}
             className="mb-20"
           >
@@ -95,6 +71,24 @@ export default function Home({ latestNews }: Props) {
               モダンなテクノロジーと洗練されたデザインで、<br />
               ビジネスの未来を創造します。
             </p>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-px h-12 bg-gray-300"
+            />
           </motion.div>
         </div>
       </section>

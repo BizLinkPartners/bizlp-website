@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 import { ReactNode, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -32,16 +33,23 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
       <header className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container-responsive flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="text-black font-light text-xl tracking-wider hover-fade transition-smooth">
-            BizLP
+          <Link href="/" className="hover-fade transition-smooth">
+            <Image
+              src="/image/logo.jpg"
+              alt="BizLP"
+              width={120}
+              height={40}
+              priority
+              className="object-contain"
+            />
           </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-12">
               <li>
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
                     router.pathname === '/' ? 'text-black' : 'text-gray-600'
                   }`}
@@ -50,8 +58,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/news" 
+                <Link
+                  href="/news"
                   className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
                     router.pathname === '/news' ? 'text-black' : 'text-gray-600'
                   }`}
@@ -60,8 +68,18 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/company" 
+                <Link
+                  href="/blog"
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/blog' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/company"
                   className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
                     router.pathname === '/company' ? 'text-black' : 'text-gray-600'
                   }`}
@@ -70,8 +88,18 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/recruit"
+                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
+                    router.pathname === '/recruit' ? 'text-black' : 'text-gray-600'
+                  }`}
+                >
+                  Recruit
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
                   className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
                     router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
                   }`}
@@ -102,8 +130,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
             <nav className="container-responsive py-6">
               <ul className="space-y-6">
                 <li>
-                  <Link 
-                    href="/" 
+                  <Link
+                    href="/"
                     className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
                       router.pathname === '/' ? 'text-black' : 'text-gray-600'
                     }`}
@@ -112,18 +140,28 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/news" 
+                  <Link
+                    href="/news"
                     className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
                       router.pathname === '/news' ? 'text-black' : 'text-gray-600'
                     }`}
                   >
-                    New
+                    News
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/company" 
+                  <Link
+                    href="/blog"
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/blog' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/company"
                     className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
                       router.pathname === '/company' ? 'text-black' : 'text-gray-600'
                     }`}
@@ -132,8 +170,18 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    href="/contact" 
+                  <Link
+                    href="/recruit"
+                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
+                      router.pathname === '/recruit' ? 'text-black' : 'text-gray-600'
+                    }`}
+                  >
+                    Recruit
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
                     className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
                       router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
                     }`}
