@@ -85,7 +85,7 @@ export default function Home({ latestNews }: Props) {
               transition={{
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: [0.42, 0, 0.58, 1],
               }}
               className="w-px h-12 bg-gray-300"
             />
