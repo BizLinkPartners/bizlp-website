@@ -32,7 +32,7 @@ export default function AnimatedButton({
           initial={{ x: 0 }}
           animate={{ x: 0 }}
           whileHover={shouldReduceMotion ? {} : { x: 4 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: [0.61, 1, 0.88, 1] }}
         >
           →
         </motion.span>
@@ -40,23 +40,17 @@ export default function AnimatedButton({
     </>
   );
 
-  const motionProps = {
-    whileHover: shouldReduceMotion ? {} : {
-      scale: 1.05,
-      transition: { duration: 0.2, ease: "easeOut" }
-    },
-    whileTap: shouldReduceMotion ? {} : {
-      scale: 0.98
-    }
-  };
-
   // リンクとして使用する場合
   if (href) {
     return (
       <motion.a
         href={href}
         className={className}
-        {...motionProps}
+        {...(!shouldReduceMotion && {
+          whileHover: { scale: 1.05 },
+          whileTap: { scale: 0.98 },
+          transition: { duration: 0.2 }
+        })}
       >
         {buttonContent}
       </motion.a>
@@ -70,7 +64,11 @@ export default function AnimatedButton({
       onClick={onClick}
       disabled={disabled}
       className={className}
-      {...motionProps}
+      {...(!shouldReduceMotion && {
+        whileHover: { scale: 1.05 },
+        whileTap: { scale: 0.98 },
+        transition: { duration: 0.2 }
+      })}
     >
       {buttonContent}
     </motion.button>
