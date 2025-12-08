@@ -26,15 +26,32 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      // レスポンスが存在し、JSONとしてパース可能か確認
+      let data: any = null;
+      try {
+        // Content-Typeがapplication/jsonか確認
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          data = await response.json();
+        } else {
+          // JSON以外のレスポンスの場合
+          const text = await response.text();
+          console.error('Non-JSON response:', text);
+        }
+      } catch (jsonError) {
+        console.error('JSON parse error:', jsonError);
+        // JSONパースエラーの場合、レスポンスが空か不正な形式
+        throw new Error('サーバーからの応答が正しくありません。時間をおいて再度お試しください。');
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || 'お問い合わせの送信に失敗しました。');
+        // エラーレスポンスの場合、dataからエラーメッセージを取得
+        throw new Error(data?.error || 'お問い合わせの送信に失敗しました。');
       }
 
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'エラーが発生しました。');
+      setError(err instanceof Error ? err.message : 'エラーが発生しました。時間をおいて再度お試しください。');
     } finally {
       setLoading(false);
     }
