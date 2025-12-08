@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -9,11 +10,19 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    privacyConsent: false
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // プライバシーポリシー同意チェック
+    if (!formData.privacyConsent) {
+      setError('プライバシーポリシーへの同意が必要です。');
+      return;
+    }
+
     setLoading(true);
     setError('');
 
@@ -58,9 +67,11 @@ export default function Contact() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [target.name]: value
     });
   };
 
@@ -121,12 +132,41 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  
+
+                  {/* 個人情報の取扱いに関する説明 */}
+                  <div className="bg-gray-50 p-6 rounded border border-gray-200">
+                    <p className="text-sm md:text-base font-light leading-relaxed text-gray-700 mb-4">
+                      当社は、お問い合わせ内容への回答およびご連絡のために、お名前・メールアドレス等の個人情報を利用いたします。詳細は
+                      <Link href="/privacy" className="text-black underline hover:text-gray-600 transition-colors">
+                        プライバシーポリシー
+                      </Link>
+                      をご確認ください。
+                    </p>
+
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        name="privacyConsent"
+                        id="privacyConsent"
+                        checked={formData.privacyConsent}
+                        onChange={handleChange}
+                        className="mt-1 mr-3 w-4 h-4 cursor-pointer"
+                        required
+                      />
+                      <label htmlFor="privacyConsent" className="text-sm md:text-base font-light leading-relaxed text-gray-700 cursor-pointer">
+                        プライバシーポリシーに同意します
+                      </label>
+                    </div>
+                    <p className="text-xs md:text-sm font-light leading-relaxed text-gray-500 mt-2 ml-7">
+                      利用者は、当社のプライバシーポリシーを確認のうえ、当社が問い合わせ内容への回答・連絡等の目的で個人情報を利用することに同意します。
+                    </p>
+                  </div>
+
                   <div className="text-center">
                     <button
                       type="submit"
                       className="btn-primary"
-                      disabled={loading}
+                      disabled={loading || !formData.privacyConsent}
                     >
                       {loading ? '送信中...' : 'Send Message'}
                     </button>
@@ -144,7 +184,7 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: '', email: '', message: '' });
+                      setFormData({ name: '', email: '', message: '', privacyConsent: false });
                     }}
                     className="text-black border-b border-gray-300 pb-1 hover:border-black transition-colors font-light tracking-wide"
                   >

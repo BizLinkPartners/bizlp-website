@@ -199,11 +199,52 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
       <main className="flex-1 pt-20">{children}</main>
       
       {/* Minimal Footer */}
-      <footer className="bg-white py-12">
-        <div className="container-responsive text-center">
-          <p className="text-sm text-gray-500 font-light tracking-wide">
-            © {new Date().getFullYear()} BizLP Inc.
-          </p>
+      <footer className="bg-white py-12 border-t border-gray-100">
+        <div className="container-responsive">
+          {/* Footer Links */}
+          <nav className="mb-8">
+            <ul className="flex flex-wrap justify-center gap-6 md:gap-8">
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                >
+                  プライバシーポリシー
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                >
+                  利用規約
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/disclaimer"
+                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                >
+                  免責事項
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/antisocial"
+                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                >
+                  反社会的勢力排除
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-sm text-gray-500 font-light tracking-wide">
+              © {new Date().getFullYear()} 株式会社ビズリンクパートナーズ
+            </p>
+          </div>
         </div>
       </footer>
     </div>
