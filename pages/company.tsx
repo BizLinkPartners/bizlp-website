@@ -122,12 +122,12 @@ export default function Company() {
 
               {/* Profile Image */}
               <ScrollAnimation>
-                <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg">
+                <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg bg-gray-50">
                   <Image
                     src="/image/profile.jpg"
                     alt="代表取締役 齋藤達希"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />
                 </div>
