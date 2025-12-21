@@ -11,7 +11,8 @@ export default function Contact() {
     name: '',
     email: '',
     message: '',
-    privacyConsent: false
+    privacyConsent: false,
+    website: '' // honeypot フィールド（スパム対策）
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,7 +37,7 @@ export default function Contact() {
       });
 
       // レスポンスが存在し、JSONとしてパース可能か確認
-      let data: any = null;
+      let data: { ok: boolean; error?: string } | null = null;
       try {
         // Content-Typeがapplication/jsonか確認
         const contentType = response.headers.get('content-type');
@@ -53,7 +54,7 @@ export default function Contact() {
         throw new Error('サーバーからの応答が正しくありません。時間をおいて再度お試しください。');
       }
 
-      if (!response.ok) {
+      if (!response.ok || !data?.ok) {
         // エラーレスポンスの場合、dataからエラーメッセージを取得
         throw new Error(data?.error || 'お問い合わせの送信に失敗しました。');
       }
@@ -133,6 +134,24 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* honeypot（スパム対策） */}
+                  <div
+                    style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }}
+                    aria-hidden="true"
+                  >
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </label>
+                  </div>
+
                   {/* 個人情報の取扱いに関する説明 */}
                   <div className="bg-gray-50 p-6 rounded border border-gray-200">
                     <p className="text-sm md:text-base font-light leading-relaxed text-gray-700 mb-4">
@@ -184,7 +203,7 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: '', email: '', message: '', privacyConsent: false });
+                      setFormData({ name: '', email: '', message: '', privacyConsent: false, website: '' });
                     }}
                     className="text-black border-b border-gray-300 pb-1 hover:border-black transition-colors font-light tracking-wide"
                   >
