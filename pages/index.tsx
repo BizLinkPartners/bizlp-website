@@ -1,9 +1,9 @@
 import Layout from '@/components/Layout';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import TypographyHero from '@/components/home/TypographyHero';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { fetchNewsList, News } from '../lib/microcms';
-import { motion } from 'framer-motion';
 
 type Props = {
   latestNews: News[];
@@ -12,86 +12,9 @@ type Props = {
 export default function Home({ latestNews }: Props) {
 
   return (
-    <Layout title="BizLP | ホーム" description="モダンなビジネスソリューション">
-      {/* Hero Section - Minimal Monochrome Design */}
-      <section className="min-h-screen flex items-center justify-center bg-white overflow-hidden">
-        <div className="container-responsive text-center">
-          {/* Company Name - Elegant Fade and Rise */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.2,
-              ease: [0.25, 0.46, 0.45, 0.94]
-            }}
-            className="mb-8"
-          >
-            <motion.h1
-              className="heading-1 text-black"
-              initial={{ letterSpacing: '0.3em' }}
-              animate={{ letterSpacing: '0.05em' }}
-              transition={{
-                duration: 1.5,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                delay: 0.3
-              }}
-            >
-              BizLP
-            </motion.h1>
-          </motion.div>
-
-          {/* Subtitle - Smooth Fade */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.0,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.4
-            }}
-            className="mb-16"
-          >
-            <p className="heading-3 text-gray-600 max-w-2xl mx-auto">
-              Modern Business Solutions
-            </p>
-          </motion.div>
-
-          {/* Description - Gentle Fade Up */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.0,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.6
-            }}
-            className="mb-20"
-          >
-            <p className="body-text text-gray-500 max-w-xl mx-auto">
-              モダンなテクノロジーと洗練されたデザインで、<br />
-              ビジネスの未来を創造します。
-            </p>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: [0.42, 0, 0.58, 1],
-              }}
-              className="w-px h-12 bg-gray-300"
-            />
-          </motion.div>
-        </div>
-      </section>
+    <Layout title="BizLP | ホーム" description="「信じる」を科学する - 株式会社ビズリンクパートナーズ">
+      {/* Hero Section - タイポグラフィ中心のヒーロー */}
+      <TypographyHero />
 
       {/* Latest News Section */}
       <section className="py-24 bg-white">
