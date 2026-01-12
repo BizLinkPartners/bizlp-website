@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import Image from 'next/image';
 
-export default function Company() {
+export default function About() {
   return (
     <Layout
       title="会社情報 | 株式会社ビズリンクパートナーズ"
@@ -16,7 +16,7 @@ export default function Company() {
             <ScrollAnimation>
               <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-wider mb-6">
-                  Company
+                  About
                 </h1>
                 <p className="text-xl md:text-2xl font-light mb-4">
                   株式会社ビズリンクパートナーズ
@@ -29,7 +29,7 @@ export default function Company() {
           </div>
         </section>
 
-        {/* Company Overview Table */}
+        {/* About Overview Table */}
         <section className="bg-white py-20 md:py-32">
           <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
             <ScrollAnimation>

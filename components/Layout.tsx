@@ -33,7 +33,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
       <header className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="container-responsive flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="hover-fade transition-smooth">
+          <Link href="/" className="shrink-0 hover-fade transition-smooth">
             <Image
               src="/image/logo.jpg"
               alt="BizLP"
@@ -46,53 +46,61 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex items-center gap-12">
+            <ul className="flex items-center gap-6 md:gap-8 lg:gap-12">
               <li>
                 <Link
                   href="/"
-                  className={`header-link ${router.pathname !== '/' ? 'inactive' : ''}`}
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/' ? 'inactive' : ''}`}
                 >
-                  Home
+                  HOME
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/about' ? 'inactive' : ''}`}
+                >
+                  ABOUT
                 </Link>
               </li>
               <li>
                 <Link
                   href="/news"
-                  className={`header-link ${router.pathname !== '/news' ? 'inactive' : ''}`}
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/news' ? 'inactive' : ''}`}
                 >
-                  News
+                  NEWS
                 </Link>
               </li>
               <li>
                 <Link
                   href="/blog"
-                  className={`header-link ${router.pathname !== '/blog' ? 'inactive' : ''}`}
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/blog' ? 'inactive' : ''}`}
                 >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/company"
-                  className={`header-link ${router.pathname !== '/company' ? 'inactive' : ''}`}
-                >
-                  Company
+                  BLOG
                 </Link>
               </li>
               <li>
                 <Link
                   href="/recruit"
-                  className={`header-link ${router.pathname !== '/recruit' ? 'inactive' : ''}`}
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/recruit' ? 'inactive' : ''}`}
                 >
-                  Recruit
+                  RECRUIT
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/work"
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/work' ? 'inactive' : ''}`}
+                >
+                  WORK
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className={`header-link ${router.pathname !== '/contact' ? 'inactive' : ''}`}
+                  className={`header-link text-[clamp(11px,1.2vw,14px)] ${router.pathname !== '/contact' ? 'inactive' : ''}`}
                 >
-                  Contact
+                  CONTACT
                 </Link>
               </li>
             </ul>
@@ -124,7 +132,17 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                       router.pathname !== '/' ? 'opacity-70' : ''
                     }`}
                   >
-                    Home
+                    HOME
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/about' ? 'opacity-70' : ''
+                    }`}
+                  >
+                    ABOUT
                   </Link>
                 </li>
                 <li>
@@ -134,7 +152,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                       router.pathname !== '/news' ? 'opacity-70' : ''
                     }`}
                   >
-                    News
+                    NEWS
                   </Link>
                 </li>
                 <li>
@@ -144,17 +162,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                       router.pathname !== '/blog' ? 'opacity-70' : ''
                     }`}
                   >
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/company"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
-                      router.pathname !== '/company' ? 'opacity-70' : ''
-                    }`}
-                  >
-                    Company
+                    BLOG
                   </Link>
                 </li>
                 <li>
@@ -164,7 +172,17 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                       router.pathname !== '/recruit' ? 'opacity-70' : ''
                     }`}
                   >
-                    Recruit
+                    RECRUIT
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/work"
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/work' ? 'opacity-70' : ''
+                    }`}
+                  >
+                    WORK
                   </Link>
                 </li>
                 <li>
@@ -174,7 +192,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                       router.pathname !== '/contact' ? 'opacity-70' : ''
                     }`}
                   >
-                    Contact
+                    CONTACT
                   </Link>
                 </li>
               </ul>

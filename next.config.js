@@ -5,7 +5,16 @@ const nextConfig = {
         remotePatterns: [
             { protocol: 'https', hostname: 'images.microcms-assets.io' }
         ]
-    }
+    },
+    async redirects() {
+        return [
+            {
+                source: '/company',
+                destination: '/about',
+                permanent: true,
+            },
+        ];
+    },
 };
 
 module.exports = nextConfig;
