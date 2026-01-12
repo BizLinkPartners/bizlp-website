@@ -49,9 +49,9 @@ const itemVariants = {
 
 export default function TypographyHero() {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-16 md:pt-10 pb-20">
+    <section className="relative min-h-screen bg-white overflow-hidden pt-60 md:pt-40 pb-20">
       {/* メインコンテンツ */}
-      <div className="container-responsive px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="container-responsive px-4 sm:px-8 md:px-12 lg:px-16">
         {/* メインコピー - 巨大タイポグラフィ（左寄せ） */}
         <motion.div
           variants={containerVariants}
@@ -64,7 +64,7 @@ export default function TypographyHero() {
               <motion.h1
                 key={index}
                 variants={itemVariants}
-                className="text-[clamp(56px,9vw,140px)] font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
+                className="text-[clamp(40px,9vw,160px)] font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
               >
                 {token}
               </motion.h1>
@@ -81,9 +81,9 @@ export default function TypographyHero() {
             ease: [0.25, 0.46, 0.45, 0.94],
             delay: 0.5,
           }}
-          className="mb-20 sm:mb-24"
+          className="mb-12 sm:mb-16"
         >
-          <div className="text-[clamp(14px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left">
+          <div className="text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left">
             {SUB_COPY_LINES.map((line, index) => (
               <p key={index} className="whitespace-nowrap">
                 {line}
@@ -91,7 +91,7 @@ export default function TypographyHero() {
             ))}
           </div>
           {/* 会社名（Follow Us風） */}
-          <p className="mt-16 sm:mt-20 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap">
+          <p className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap">
             株式会社ビズリンクパートナーズ
           </p>
         </motion.div>
