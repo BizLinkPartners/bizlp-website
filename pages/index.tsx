@@ -17,14 +17,14 @@ export default function Home({ latestNews }: Props) {
       <TypographyHero />
 
       {/* Latest News Section */}
-      <section className="py-24 bg-white">
+      <section className="pt-12 pb-24 bg-white">
         <div className="container-responsive">
           <ScrollAnimation>
-            <h2 className="heading-2 text-center mb-16 text-black">
+            <h2 className="heading-2 text-center mb-16">
               Latest News
             </h2>
           </ScrollAnimation>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="space-y-12">
               {latestNews.slice(0, 3).map((news, index) => (
@@ -32,17 +32,17 @@ export default function Home({ latestNews }: Props) {
                   <Link href={`/news/${news.id}`} className="block group">
                     <div className="border-b border-gray-100 pb-8 group-hover:border-gray-300 transition-colors">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                        <h3 className="heading-3 text-black group-hover:text-gray-600 transition-colors">
+                        <h3 className="heading-3 group-hover:opacity-70 transition-opacity">
                           {news.title}
                         </h3>
                         <span className="small-text mt-2 sm:mt-0 sm:ml-4">
-                          {news.eventDate 
+                          {news.eventDate
                             ? new Date(news.eventDate).toLocaleDateString('ja-JP')
                             : new Date(news.publishedAt).toLocaleDateString('ja-JP')
                           }
                         </span>
                       </div>
-                      <p className="body-text text-gray-500">
+                      <p className="body-text">
                         {news.description}
                       </p>
                     </div>
@@ -50,12 +50,12 @@ export default function Home({ latestNews }: Props) {
                 </ScrollAnimation>
               ))}
             </div>
-            
+
             <ScrollAnimation delay={0.4}>
               <div className="text-center mt-16">
-                <Link 
-                  href="/news" 
-                  className="text-black border-b border-gray-300 pb-1 hover:border-black transition-colors font-light tracking-wide"
+                <Link
+                  href="/news"
+                  className="text-primary border-b border-gray-300 pb-1 hover:opacity-70 transition-opacity font-light tracking-wide"
                 >
                   View All News
                 </Link>

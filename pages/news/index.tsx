@@ -14,7 +14,7 @@ export default function NewsIndex({ news }: Props) {
       <div className="min-h-screen bg-white">
         <div className="container-responsive py-24">
           <ScrollAnimation>
-            <h1 className="heading-2 text-center mb-20 text-black">
+            <h1 className="heading-2 text-center mb-20">
               News
             </h1>
           </ScrollAnimation>
@@ -26,17 +26,17 @@ export default function NewsIndex({ news }: Props) {
                   <Link href={`/news/${newsItem.id}`} className="block group">
                     <article className="border-b border-gray-100 pb-12 group-hover:border-gray-300 transition-colors">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
-                        <h2 className="heading-3 text-black group-hover:text-gray-600 transition-colors mb-4 sm:mb-0">
+                        <h2 className="heading-3 group-hover:opacity-70 transition-opacity mb-4 sm:mb-0">
                           {newsItem.title}
                         </h2>
                         <time className="small-text sm:ml-8 sm:whitespace-nowrap">
-                          {newsItem.eventDate 
+                          {newsItem.eventDate
                             ? new Date(newsItem.eventDate).toLocaleDateString('ja-JP')
                             : new Date(newsItem.publishedAt).toLocaleDateString('ja-JP')
                           }
                         </time>
                       </div>
-                      <p className="body-text text-gray-500">
+                      <p className="body-text">
                         {newsItem.description}
                       </p>
                     </article>

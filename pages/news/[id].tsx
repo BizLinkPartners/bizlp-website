@@ -10,7 +10,7 @@ export default function NewsDetail({ news }: Props) {
     <Layout title={news.title} description={news.body.slice(0, 100)}>
       <article className="container-responsive py-12">
         <h1 className="heading-2 mb-2">{news.title}</h1>
-        <div className="text-sm text-gray-500 mb-6">{news.eventDate ? new Date(news.eventDate).toLocaleString('ja-JP') : new Date(news.publishedAt).toLocaleString('ja-JP')}</div>
+        <div className="small-text mb-6">{news.eventDate ? new Date(news.eventDate).toLocaleString('ja-JP') : new Date(news.publishedAt).toLocaleString('ja-JP')}</div>
         <div className="prose-basic" dangerouslySetInnerHTML={{ __html: sanitizeHtml(news.body) }} />
       </article>
     </Layout>

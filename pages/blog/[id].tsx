@@ -12,24 +12,24 @@ export default function BlogDetail({ blog }: Props) {
       <article className="container-responsive py-12">
         {/* カテゴリとパンくずリスト */}
         <div className="max-w-3xl mx-auto mb-8">
-          <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-            <Link href="/blog" className="hover:text-black transition-colors">
+          <div className="flex items-center gap-2 small-text mb-6">
+            <Link href="/blog" className="hover:opacity-70 transition-opacity">
               Blog
             </Link>
             <span>/</span>
-            <span className="text-black">{blog.category.name}</span>
+            <span className="text-primary">{blog.category.name}</span>
           </div>
         </div>
 
         {/* 記事ヘッダー */}
         <header className="max-w-3xl mx-auto mb-12">
           <div className="mb-4">
-            <span className="inline-block px-3 py-1 text-xs font-light tracking-wide bg-gray-100 text-gray-600 rounded">
+            <span className="inline-block px-3 py-1 text-xs font-light tracking-wide bg-gray-100 rounded">
               {blog.category.name}
             </span>
           </div>
           <h1 className="heading-2 mb-4">{blog.title}</h1>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-4 small-text">
             <time>
               {new Date(blog.publishedAt).toLocaleDateString('ja-JP', {
                 year: 'numeric',
@@ -49,7 +49,7 @@ export default function BlogDetail({ blog }: Props) {
         <div className="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-100">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-light text-gray-600 hover:text-black transition-colors"
+            className="inline-flex items-center gap-2 small-text hover:opacity-70 transition-opacity"
           >
             <svg
               className="w-4 h-4"

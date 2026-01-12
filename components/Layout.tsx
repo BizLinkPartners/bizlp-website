@@ -43,16 +43,14 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               className="object-contain"
             />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-12">
               <li>
                 <Link
                   href="/"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/' ? 'inactive' : ''}`}
                 >
                   Home
                 </Link>
@@ -60,9 +58,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/news"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/news' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/news' ? 'inactive' : ''}`}
                 >
                   News
                 </Link>
@@ -70,9 +66,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/blog"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/blog' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/blog' ? 'inactive' : ''}`}
                 >
                   Blog
                 </Link>
@@ -80,9 +74,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/company"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/company' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/company' ? 'inactive' : ''}`}
                 >
                   Company
                 </Link>
@@ -90,9 +82,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/recruit"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/recruit' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/recruit' ? 'inactive' : ''}`}
                 >
                   Recruit
                 </Link>
@@ -100,9 +90,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/contact"
-                  className={`text-sm font-light tracking-wide transition-smooth hover-fade ${
-                    router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
-                  }`}
+                  className={`header-link ${router.pathname !== '/contact' ? 'inactive' : ''}`}
                 >
                   Contact
                 </Link>
@@ -112,14 +100,14 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-black"
+            className="md:hidden text-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block h-px bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+              <span className={`block h-px bg-[#554C51] transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+              <span className={`block h-px bg-[#554C51] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block h-px bg-[#554C51] transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
             </div>
           </button>
         </div>
@@ -132,8 +120,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/' ? 'opacity-70' : ''
                     }`}
                   >
                     Home
@@ -142,8 +130,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/news"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/news' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/news' ? 'opacity-70' : ''
                     }`}
                   >
                     News
@@ -152,8 +140,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/blog"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/blog' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/blog' ? 'opacity-70' : ''
                     }`}
                   >
                     Blog
@@ -162,8 +150,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/company"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/company' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/company' ? 'opacity-70' : ''
                     }`}
                   >
                     Company
@@ -172,8 +160,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/recruit"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/recruit' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/recruit' ? 'opacity-70' : ''
                     }`}
                   >
                     Recruit
@@ -182,8 +170,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
                 <li>
                   <Link
                     href="/contact"
-                    className={`block text-lg font-light tracking-wide transition-smooth hover-fade ${
-                      router.pathname === '/contact' ? 'text-black' : 'text-gray-600'
+                    className={`block text-lg font-light tracking-wide transition-smooth hover:opacity-70 text-primary ${
+                      router.pathname !== '/contact' ? 'opacity-70' : ''
                     }`}
                   >
                     Contact
@@ -199,7 +187,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
       <main className="flex-1 pt-20">{children}</main>
       
       {/* Minimal Footer */}
-      <footer className="bg-white py-12 border-t border-gray-100">
+      <footer className="bg-[#554C51] py-12">
         <div className="container-responsive">
           {/* Footer Links */}
           <nav className="mb-8">
@@ -207,7 +195,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
                 >
                   プライバシーポリシー
                 </Link>
@@ -215,7 +203,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/terms"
-                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
                 >
                   利用規約
                 </Link>
@@ -223,7 +211,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/disclaimer"
-                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
                 >
                   免責事項
                 </Link>
@@ -231,7 +219,7 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
               <li>
                 <Link
                   href="/antisocial"
-                  className="text-sm font-light tracking-wide text-gray-600 hover:text-black transition-colors"
+                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
                 >
                   反社会的勢力排除
                 </Link>
@@ -241,8 +229,8 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
 
           {/* Copyright */}
           <div className="text-center">
-            <p className="text-sm text-gray-500 font-light tracking-wide">
-              © {new Date().getFullYear()} 株式会社ビズリンクパートナーズ
+            <p className="text-sm text-white/80 font-light tracking-wide">
+              © {new Date().getFullYear()} BizLink Partners Co., Ltd.
             </p>
           </div>
         </div>

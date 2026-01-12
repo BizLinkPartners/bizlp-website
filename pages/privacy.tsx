@@ -10,27 +10,27 @@ export default function Privacy() {
       <div className="min-h-screen bg-white">
         <div className="container-responsive py-24">
           <ScrollAnimation>
-            <h1 className="text-4xl md:text-5xl font-light tracking-wide text-black mb-16 text-center">
+            <h1 className="heading-1 mb-16 text-center">
               プライバシーポリシー
             </h1>
           </ScrollAnimation>
 
           <div className="max-w-3xl mx-auto space-y-12">
             <ScrollAnimation delay={0.1}>
-              <p className="text-base md:text-lg font-light leading-relaxed text-gray-700">
+              <p className="body-text">
                 株式会社ビズリンクパートナーズ（以下「当社」）は、個人情報保護の重要性を認識し、以下の方針に基づき適切に取り扱います。
               </p>
             </ScrollAnimation>
 
             <ScrollAnimation delay={0.2}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   1. 取得する個人情報
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-4">
+                <p className="body-text mb-4">
                   当社は、お問い合わせフォーム等を通じ、以下の情報を取得する場合があります。
                 </p>
-                <ul className="space-y-2 text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <ul className="space-y-2 body-text">
                   <li className="flex items-start">
                     <span className="inline-block w-2 h-2 bg-black rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
                     <span>氏名</span>
@@ -61,13 +61,13 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.3}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   2. 個人情報の利用目的
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-4">
+                <p className="body-text mb-4">
                   取得した個人情報は、以下の目的のために利用します。
                 </p>
-                <ol className="space-y-2 text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <ol className="space-y-2 body-text">
                   <li className="flex items-start">
                     <span className="mr-3 flex-shrink-0">1)</span>
                     <span>お問い合わせへの回答・連絡</span>
@@ -93,7 +93,7 @@ export default function Privacy() {
                     <span>契約・取引の管理</span>
                   </li>
                 </ol>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mt-4">
+                <p className="body-text mt-4">
                   ※利用目的を超えて利用することはありません。
                 </p>
               </section>
@@ -101,13 +101,13 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.4}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   3. 第三者提供について
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-4">
+                <p className="body-text mb-4">
                   当社は、以下の場合を除き、個人情報を第三者に提供することはありません。
                 </p>
-                <ul className="space-y-2 text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <ul className="space-y-2 body-text">
                   <li className="flex items-start">
                     <span className="inline-block w-2 h-2 bg-black rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
                     <span>本人の同意がある場合</span>
@@ -130,10 +130,10 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.5}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   4. 個人情報の管理
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <p className="body-text">
                   当社は、個人情報への不正アクセス、紛失、破壊、改ざん、漏えい等を防止するため、適切な対策を講じます。
                 </p>
               </section>
@@ -141,13 +141,13 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.6}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   5. 個人情報の開示・訂正・削除等の請求
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-4">
+                <p className="body-text mb-4">
                   本人からの以下の請求には、合理的な範囲で対応します。
                 </p>
-                <ul className="space-y-2 text-base md:text-lg font-light leading-relaxed text-gray-700 mb-4">
+                <ul className="space-y-2 body-text mb-4">
                   <li className="flex items-start">
                     <span className="inline-block w-2 h-2 bg-black rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
                     <span>開示</span>
@@ -169,7 +169,7 @@ export default function Privacy() {
                     <span>削除</span>
                   </li>
                 </ul>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <p className="body-text">
                   請求方法は本ポリシー末尾の連絡先までお問い合わせください。
                 </p>
               </section>
@@ -177,10 +177,10 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.7}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   6. クッキー（Cookie）等の利用について
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <p className="body-text">
                   当社は、アクセス解析のため Cookie を利用する場合があります。Cookie により個人を特定することはありません。
                 </p>
               </section>
@@ -188,10 +188,10 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.8}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   7. 変更について
                 </h2>
-                <p className="text-base md:text-lg font-light leading-relaxed text-gray-700">
+                <p className="body-text">
                   本ポリシーは予告なく改訂される場合があります。
                 </p>
               </section>
@@ -199,10 +199,10 @@ export default function Privacy() {
 
             <ScrollAnimation delay={0.9}>
               <section>
-                <h2 className="text-2xl md:text-3xl font-light tracking-wide text-black mb-6">
+                <h2 className="heading-2 mb-6">
                   8. 個人情報に関するお問い合わせ窓口
                 </h2>
-                <div className="text-base md:text-lg font-light leading-relaxed text-gray-700 space-y-2">
+                <div className="body-text space-y-2">
                   <p>株式会社ビズリンクパートナーズ</p>
                   <p>代表者：齋藤達希</p>
                   <p>住所：福井県越前市新町８号１番地</p>

@@ -23,7 +23,7 @@ export default function BlogIndex({ blogs, categories }: Props) {
       <div className="min-h-screen bg-white">
         <div className="container-responsive py-24">
           <ScrollAnimation>
-            <h1 className="heading-2 text-center mb-20 text-black">
+            <h1 className="heading-2 text-center mb-20">
               Blog
             </h1>
           </ScrollAnimation>
@@ -37,8 +37,8 @@ export default function BlogIndex({ blogs, categories }: Props) {
                     onClick={() => setSelectedCategory(null)}
                     className={`px-6 py-2 rounded-full text-sm font-light tracking-wide transition-all ${
                       selectedCategory === null
-                        ? 'bg-black text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        ? 'bg-[#554C51] text-white'
+                        : 'bg-gray-100 hover:bg-gray-200'
                     }`}
                   >
                     All
@@ -49,8 +49,8 @@ export default function BlogIndex({ blogs, categories }: Props) {
                       onClick={() => setSelectedCategory(category.id)}
                       className={`px-6 py-2 rounded-full text-sm font-light tracking-wide transition-all ${
                         selectedCategory === category.id
-                          ? 'bg-black text-white'
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          ? 'bg-[#554C51] text-white'
+                          : 'bg-gray-100 hover:bg-gray-200'
                       }`}
                     >
                       {category.name}
@@ -72,19 +72,19 @@ export default function BlogIndex({ blogs, categories }: Props) {
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
-                              <span className="inline-block px-3 py-1 text-xs font-light tracking-wide bg-gray-100 text-gray-600 rounded">
+                              <span className="inline-block px-3 py-1 text-xs font-light tracking-wide bg-gray-100 rounded">
                                 {blog.category.name}
                               </span>
                               <time className="small-text">
                                 {new Date(blog.publishedAt).toLocaleDateString('ja-JP')}
                               </time>
                             </div>
-                            <h2 className="heading-3 text-black group-hover:text-gray-600 transition-colors">
+                            <h2 className="heading-3 group-hover:opacity-70 transition-opacity">
                               {blog.title}
                             </h2>
                           </div>
                         </div>
-                        <p className="body-text text-gray-500">
+                        <p className="body-text">
                           {blog.description}
                         </p>
                       </article>
@@ -95,7 +95,7 @@ export default function BlogIndex({ blogs, categories }: Props) {
             ) : (
               <ScrollAnimation>
                 <div className="text-center py-20">
-                  <p className="body-text text-gray-500">
+                  <p className="body-text">
                     選択されたカテゴリのブログ記事はありません
                   </p>
                 </div>

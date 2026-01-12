@@ -49,7 +49,7 @@ const itemVariants = {
 
 export default function TypographyHero() {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-60 md:pt-40 pb-20">
+    <section className="relative min-h-screen bg-white overflow-hidden pt-60 md:pt-40 pb-20 text-black">
       {/* メインコンテンツ */}
       <div className="container-responsive px-4 sm:px-8 md:px-12 lg:px-16">
         {/* メインコピー - 巨大タイポグラフィ（左寄せ） */}

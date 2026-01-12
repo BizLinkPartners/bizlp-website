@@ -81,11 +81,11 @@ export default function Contact() {
       <div className="min-h-screen bg-white">
         <div className="container-responsive py-24">
           <ScrollAnimation>
-            <h1 className="heading-2 text-center mb-20 text-black">
+            <h1 className="heading-2 text-center mb-20">
               Contact
             </h1>
           </ScrollAnimation>
-          
+
           <div className="max-w-2xl mx-auto">
             {!submitted ? (
               <ScrollAnimation delay={0.2}>
@@ -96,7 +96,7 @@ export default function Contact() {
                 )}
                 <form onSubmit={handleSubmit} className="space-y-12">
                   <div>
-                    <label className="block small-text text-gray-500 mb-4">Name</label>
+                    <label className="block small-text mb-4">Name</label>
                     <input
                       type="text"
                       name="name"
@@ -107,9 +107,9 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label className="block small-text text-gray-500 mb-4">Email</label>
+                    <label className="block small-text mb-4">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -120,9 +120,9 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  
+
                   <div>
-                    <label className="block small-text text-gray-500 mb-4">Message</label>
+                    <label className="block small-text mb-4">Message</label>
                     <textarea
                       name="message"
                       value={formData.message}
@@ -154,9 +154,9 @@ export default function Contact() {
 
                   {/* 個人情報の取扱いに関する説明 */}
                   <div className="bg-gray-50 p-6 rounded border border-gray-200">
-                    <p className="text-sm md:text-base font-light leading-relaxed text-gray-700 mb-4">
+                    <p className="text-sm md:text-base font-light leading-relaxed mb-4">
                       当社は、お問い合わせ内容への回答およびご連絡のために、お名前・メールアドレス等の個人情報を利用いたします。詳細は
-                      <Link href="/privacy" className="text-black underline hover:text-gray-600 transition-colors">
+                      <Link href="/privacy" className="text-primary underline hover:opacity-70 transition-opacity">
                         プライバシーポリシー
                       </Link>
                       をご確認ください。
@@ -172,11 +172,11 @@ export default function Contact() {
                         className="mt-1 mr-3 w-4 h-4 cursor-pointer"
                         required
                       />
-                      <label htmlFor="privacyConsent" className="text-sm md:text-base font-light leading-relaxed text-gray-700 cursor-pointer">
+                      <label htmlFor="privacyConsent" className="text-sm md:text-base font-light leading-relaxed cursor-pointer">
                         プライバシーポリシーに同意します
                       </label>
                     </div>
-                    <p className="text-xs md:text-sm font-light leading-relaxed text-gray-500 mt-2 ml-7">
+                    <p className="text-xs md:text-sm font-light leading-relaxed opacity-80 mt-2 ml-7">
                       利用者は、当社のプライバシーポリシーを確認のうえ、当社が問い合わせ内容への回答・連絡等の目的で個人情報を利用することに同意します。
                     </p>
                   </div>
@@ -195,8 +195,8 @@ export default function Contact() {
             ) : (
               <ScrollAnimation delay={0.2}>
                 <div className="text-center">
-                  <h2 className="heading-3 mb-8 text-black">Thank You</h2>
-                  <p className="body-text text-gray-500 mb-12">
+                  <h2 className="heading-3 mb-8">Thank You</h2>
+                  <p className="body-text mb-12">
                     お問い合わせありがとうございます。<br />
                     担当者よりご連絡いたします。
                   </p>
@@ -205,7 +205,7 @@ export default function Contact() {
                       setSubmitted(false);
                       setFormData({ name: '', email: '', message: '', privacyConsent: false, website: '' });
                     }}
-                    className="text-black border-b border-gray-300 pb-1 hover:border-black transition-colors font-light tracking-wide"
+                    className="text-primary border-b border-gray-300 pb-1 hover:opacity-70 transition-opacity font-light tracking-wide"
                   >
                     Send Another Message
                   </button>
