@@ -34,14 +34,16 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
         <div className="container-responsive flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 hover-fade transition-smooth">
-            <Image
-              src="/image/logo.jpg"
-              alt="BizLP"
-              width={120}
-              height={40}
-              priority
-              className="object-contain"
-            />
+            <div className="neu-shadow">
+              <Image
+                src="/image/logo.png"
+                alt="BizLP"
+                width={120}
+                height={40}
+                priority
+                className="object-contain"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
