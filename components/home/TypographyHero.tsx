@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ScrollIndicatorRight from '@/components/ScrollIndicatorRight';
 
 /**
  * タイポグラフィ中心のヒーローセクション
@@ -96,6 +97,9 @@ export default function TypographyHero() {
           </p>
         </motion.div>
       </div>
+
+      {/* スクロールインジケータ（右端） */}
+      <ScrollIndicatorRight />
     </section>
   );
 }
