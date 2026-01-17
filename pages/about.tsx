@@ -10,25 +10,6 @@ export default function About() {
     >
       <div className="min-h-screen bg-white">
 
-        {/* Hero Section */}
-        <section className="bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-[1040px] px-6 sm:px-8 lg:px-12">
-            <ScrollAnimation>
-              <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-wider mb-6">
-                  About
-                </h1>
-                <p className="text-xl md:text-2xl font-light mb-4">
-                  株式会社ビズリンクパートナーズ
-                </p>
-                <p className="body-text leading-relaxed">
-                  AI・DXコンサルティングで企業の成長を支援
-                </p>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </section>
-
         {/* About Overview Table */}
         <section className="bg-white py-20 md:py-32">
           <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
@@ -47,15 +28,7 @@ export default function About() {
                         会社名
                       </th>
                       <td className="px-6 py-5 font-light text-sm md:text-base">
-                        株式会社ビズリンクパートナーズ
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
-                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
-                        所在地
-                      </th>
-                      <td className="px-6 py-5 font-light text-sm md:text-base">
-                        福井県越前市新町８号１番地
+                        株式会社ビズリンクパートナーズ ／ BizLink Partners Co., Ltd.
                       </td>
                     </tr>
                     <tr className="hover:bg-gray-50 transition-colors">
@@ -63,7 +36,15 @@ export default function About() {
                         代表取締役
                       </th>
                       <td className="px-6 py-5 font-light text-sm md:text-base">
-                        齋藤達希
+                        齋藤 達希
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
+                        所在地
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        〒915-0075 福井県越前市幸町５番１０号
                       </td>
                     </tr>
                     <tr className="hover:bg-gray-50 transition-colors">
@@ -71,46 +52,57 @@ export default function About() {
                         設立
                       </th>
                       <td className="px-6 py-5 font-light text-sm md:text-base">
-                        2025年11月19日
+                        2025年11月
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
+                        資本金
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        3,000,000円
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
+                        従業員数
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        1名（2026年1月現在）
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        事業内容
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        <ul className="space-y-2">
+                          <li className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span>人工知能（AI）、機械学習、生成AI、自然言語処理等の技術を活用したシステム・サービスの企画、開発、運用業務</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span>DX（デジタルトランスフォーメーション）推進に関する企画、コンサルティング及び実行支援</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span>経営戦略、事業計画、組織開発、業務改善等に関するコンサルティング業務</span>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
+                        主要取引銀行
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        福井銀行
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </ScrollAnimation>
-          </div>
-        </section>
-
-        {/* Business Content */}
-        <section className="bg-gray-50 py-20 md:py-32">
-          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
-            <ScrollAnimation>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
-                事業内容
-              </h2>
-            </ScrollAnimation>
-
-            <ScrollAnimation delay={0.2}>
-              <ul className="space-y-6">
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-[#554C51] rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                  <p className="body-text leading-relaxed">
-                    人工知能（AI）、機械学習、生成AI、自然言語処理等の技術を活用したシステム・サービスの企画、開発、運用業務
-                  </p>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-[#554C51] rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                  <p className="body-text leading-relaxed">
-                    DX（デジタルトランスフォーメーション）推進に関する企画、コンサルティング及び実行支援
-                  </p>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-[#554C51] rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                  <p className="body-text leading-relaxed">
-                    経営戦略、事業計画、組織開発、業務改善等に関するコンサルティング業務
-                  </p>
-                </li>
-              </ul>
             </ScrollAnimation>
           </div>
         </section>
