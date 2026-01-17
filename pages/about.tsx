@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import Layout from '@/components/Layout';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function About() {
+  // アコーディオン開閉状態（null = 全て閉じる、'purpose' | 'mission' | 'vision' = 該当項目を開く）
+  const [openItem, setOpenItem] = useState<string | null>(null);
+
+  const toggleItem = (item: string) => {
+    setOpenItem(openItem === item ? null : item);
+  };
+
   return (
     <Layout
       title="会社情報 | 株式会社ビズリンクパートナーズ"
@@ -175,6 +184,161 @@ export default function About() {
                 </div>
               </ScrollAnimation>
             </div>
+          </div>
+        </section>
+
+        {/* 経営理念 Section */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-16 text-center">
+                経営理念
+              </h2>
+            </ScrollAnimation>
+
+            {/* PURPOSE */}
+            <ScrollAnimation delay={0.1}>
+              <div className="border-t border-[#554C51]/20">
+                <button
+                  onClick={() => toggleItem('purpose')}
+                  aria-expanded={openItem === 'purpose'}
+                  aria-controls="purpose-content"
+                  className="w-full py-8 md:py-10 flex items-center justify-between text-left cursor-pointer group"
+                >
+                  <div>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.15em] text-[#554C51] mb-2">PURPOSE</p>
+                    <p className="text-xs md:text-sm font-light text-[#909397]">わたしたちの存在意義</p>
+                  </div>
+                  <motion.svg
+                    animate={{ rotate: openItem === 'purpose' ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-5 h-5 md:w-6 md:h-6 text-[#554C51]/60 flex-shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </button>
+                <AnimatePresence>
+                  {openItem === 'purpose' && (
+                    <motion.div
+                      id="purpose-content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-8 md:pb-10">
+                        <p className="text-lg md:text-xl lg:text-2xl font-light text-[#554C51] mb-4" style={{lineHeight: '1.6'}}>
+                          「信じあえる」を手続きから解放する。
+                        </p>
+                        <p className="text-sm md:text-base font-light text-[#909397]" style={{lineHeight: '1.8'}}>
+                          信じるための確認作業（＝手続き）に費やされる膨大な時間とエネルギーをゼロにすること
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </ScrollAnimation>
+
+            {/* MISSION */}
+            <ScrollAnimation delay={0.2}>
+              <div className="border-t border-[#554C51]/20">
+                <button
+                  onClick={() => toggleItem('mission')}
+                  aria-expanded={openItem === 'mission'}
+                  aria-controls="mission-content"
+                  className="w-full py-8 md:py-10 flex items-center justify-between text-left cursor-pointer group"
+                >
+                  <div>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.15em] text-[#554C51] mb-2">MISSION</p>
+                    <p className="text-xs md:text-sm font-light text-[#909397]">わたしたちの使命</p>
+                  </div>
+                  <motion.svg
+                    animate={{ rotate: openItem === 'mission' ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-5 h-5 md:w-6 md:h-6 text-[#554C51]/60 flex-shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </button>
+                <AnimatePresence>
+                  {openItem === 'mission' && (
+                    <motion.div
+                      id="mission-content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-8 md:pb-10">
+                        <p className="text-lg md:text-xl lg:text-2xl font-light text-[#554C51] mb-4" style={{lineHeight: '1.6'}}>
+                          「信じあえる」を科学にする。
+                        </p>
+                        <p className="text-sm md:text-base font-light text-[#909397]" style={{lineHeight: '1.8'}}>
+                          曖昧な「信頼」という現象を解明し、誰もが扱える力に変えること。
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </ScrollAnimation>
+
+            {/* VISION */}
+            <ScrollAnimation delay={0.3}>
+              <div className="border-t border-[#554C51]/20 border-b">
+                <button
+                  onClick={() => toggleItem('vision')}
+                  aria-expanded={openItem === 'vision'}
+                  aria-controls="vision-content"
+                  className="w-full py-8 md:py-10 flex items-center justify-between text-left cursor-pointer group"
+                >
+                  <div>
+                    <p className="text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.15em] text-[#554C51] mb-2">VISION</p>
+                    <p className="text-xs md:text-sm font-light text-[#909397]">わたしたちが目指す未来</p>
+                  </div>
+                  <motion.svg
+                    animate={{ rotate: openItem === 'vision' ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-5 h-5 md:w-6 md:h-6 text-[#554C51]/60 flex-shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </button>
+                <AnimatePresence>
+                  {openItem === 'vision' && (
+                    <motion.div
+                      id="vision-content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-8 md:pb-10">
+                        <p className="text-lg md:text-xl lg:text-2xl font-light text-[#554C51] mb-4" style={{lineHeight: '1.6'}}>
+                          「信じあえる」を、1秒で。
+                        </p>
+                        <p className="text-sm md:text-base font-light text-[#909397]" style={{lineHeight: '1.8'}}>
+                          出会った瞬間に手を取りあえる社会にする。
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </ScrollAnimation>
           </div>
         </section>
 
