@@ -131,6 +131,37 @@ export default function Recruit() {
           </div>
         </section>
 
+        {/* 応募資格 Section */}
+        <section className="bg-white py-20 md:py-32">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
+                応募資格
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div>
+                <p className="text-sm md:text-base font-light mb-6">以下のすべての条件を満たす方</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-sm md:text-base font-light">原則として2002年4月2日以降（個別相談に応じます）に生まれの方</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-sm md:text-base font-light">国内外の4年制大学を卒業または2027年3月までに卒業見込みか、同程度の学力を有する方</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-sm md:text-base font-light">新卒・既卒、学部・学科は問いません。現在、社会人の方も歓迎</span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
