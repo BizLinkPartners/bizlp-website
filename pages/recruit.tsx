@@ -202,6 +202,49 @@ export default function Recruit() {
           </div>
         </section>
 
+        {/* 選考の流れ Section */}
+        <section className="bg-white py-20 md:py-32">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
+                選考の流れ
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div>
+                <ol className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP1）</span>
+                    <span className="text-sm md:text-base font-light">エントリーシートにて書類選考を実施</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP2）</span>
+                    <span className="text-sm md:text-base font-light">WEBにて適性検査等の試験を実施</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP3）</span>
+                    <span className="text-sm md:text-base font-light">能力に関する面接選考（オンラインも可）</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP4）</span>
+                    <span className="text-sm md:text-base font-light">社風との合致度に関する面接選考（対面のみ、交通費支給）</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP5）</span>
+                    <span className="text-sm md:text-base font-light">オファー面談</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP6）</span>
+                    <span className="text-sm md:text-base font-light">オファーレター送付</span>
+                  </li>
+                </ol>
+                <p className="text-xs md:text-sm font-light text-[#909397]">※各選考結果は通過/不通過にかかわらず5営業日以内にご連絡いたします</p>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
