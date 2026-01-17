@@ -162,6 +162,46 @@ export default function Recruit() {
           </div>
         </section>
 
+        {/* 応募方法 Section */}
+        <section className="bg-white py-20 md:py-32">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
+                応募方法
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div>
+                <p className="text-sm md:text-base font-light mb-6">以下の手順にてお願いします。</p>
+                <ol className="space-y-3 mb-10">
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP1）</span>
+                    <span className="text-sm md:text-base font-light">MY PAGE登録</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP2）</span>
+                    <span className="text-sm md:text-base font-light">WEBアンケートに回答して志望職種などを決定</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-sm md:text-base font-light text-[#554C51] mr-2 flex-shrink-0">STEP3）</span>
+                    <span className="text-sm md:text-base font-light">エントリーシートをWEB入力して提出</span>
+                  </li>
+                </ol>
+
+                <div className="border-t border-gray-200 pt-8">
+                  <p className="text-sm md:text-base font-medium text-[#554C51] mb-4">問い合わせ先</p>
+                  <div className="text-sm md:text-base font-light text-[#909397] space-y-1">
+                    <p>株式会社ビズリンクパートナーズ</p>
+                    <p>採用担当</p>
+                    <p>Mail： recruit@bizlp.co.jp</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
