@@ -3,20 +3,134 @@ import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function Recruit() {
   return (
-    <Layout title="Recruit | BizLP" description="Career opportunities at BizLP">
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="container-responsive py-24">
-          <ScrollAnimation>
-            <div className="text-center">
-              <h1 className="text-6xl md:text-8xl font-light tracking-wider mb-8">
-                Coming Soon
-              </h1>
-              <p className="body-text tracking-wide">
-                Recruit
-              </p>
-            </div>
-          </ScrollAnimation>
-        </div>
+    <Layout title="採用情報 | 株式会社ビズリンクパートナーズ" description="株式会社ビズリンクパートナーズの採用情報・募集要項">
+      <div className="min-h-screen bg-white">
+
+        {/* 待遇・休日 Section */}
+        <section className="bg-white py-20 md:py-32">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
+                待遇・休日
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div className="overflow-hidden border border-gray-200">
+                <table className="w-full">
+                  <tbody className="divide-y divide-gray-200">
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base w-1/3 align-top">
+                        職種
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        ITコンサルタントおよびPM/PMO職
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        雇用形態
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        正社員
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        勤務地
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        福井県越前市　※原則転勤はありませんが希望に応じて東京勤務も選択可能
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        就業時間
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        フルフレックス
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        必要な資格・免許
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        普通運転免許
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        休日・休暇
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        完全週休2日制（土・日）、祝日、GW、夏季、年末年始など（年間128日程度）、年次有給休暇、特別有給休暇（慶弔など）、産前産後休暇、育児休暇、リフレッシュ休暇など
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        福利厚生
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        各種社会保険
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        給与
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        当社規定により決定 ※ご本人の経験・スキルを考慮し決定
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        諸手当
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        通勤費（全額支給）、時間外勤務手当、宿泊出張手当など
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        賞与・昇給
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        賞与年1回（8月決算賞与）
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        研修制度
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        <ul className="space-y-2">
+                          <li className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span>ビジネス、IT / AI、リーガルマインド育成、PM/PMO育成、コンサルタントスキル獲得 等の社内研修</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <span>その他外部講習会費用補助、各種通信教育受講費補助など</span>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-50 transition-colors">
+                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
+                        加入保険
+                      </th>
+                      <td className="px-6 py-5 font-light text-sm md:text-base">
+                        健康保険、厚生年金、雇用保険、労災保険
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
