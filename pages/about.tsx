@@ -342,6 +342,98 @@ export default function About() {
           </div>
         </section>
 
+        {/* 沿革 Section */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <div className="text-center mb-16">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                  沿革
+                </h2>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div className="relative">
+                {/* 2025年 */}
+                <div className="flex">
+                  {/* 年（左カラム） */}
+                  <div className="w-16 md:w-20 flex-shrink-0 text-right pr-4 md:pr-6">
+                    <span className="text-lg md:text-xl font-light text-[#554C51]">2025</span>
+                  </div>
+                  {/* タイムライン（中央） */}
+                  <div className="relative flex flex-col items-center">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#554C51]/70 flex-shrink-0 mt-1.5"></div>
+                    <div className="w-px bg-[#554C51]/30 flex-grow"></div>
+                  </div>
+                  {/* 内容（右カラム） */}
+                  <div className="flex-grow pl-4 md:pl-6 pb-10 md:pb-12">
+                    <div className="flex items-baseline">
+                      <span className="w-10 md:w-12 text-sm md:text-base font-light text-[#554C51] flex-shrink-0">11月</span>
+                      <span className="text-sm md:text-base font-light text-[#909397]">株式会社ビズリンクパートナーズ設立</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2026年 - 1月 */}
+                <div className="flex">
+                  {/* 年（左カラム） */}
+                  <div className="w-16 md:w-20 flex-shrink-0 text-right pr-4 md:pr-6">
+                    <span className="text-lg md:text-xl font-light text-[#554C51]">2026</span>
+                  </div>
+                  {/* タイムライン（中央） */}
+                  <div className="relative flex flex-col items-center">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#554C51]/70 flex-shrink-0 mt-1.5"></div>
+                    <div className="w-px bg-[#554C51]/30 flex-grow"></div>
+                  </div>
+                  {/* 内容（右カラム） */}
+                  <div className="flex-grow pl-4 md:pl-6 pb-10 md:pb-12">
+                    <div className="flex items-baseline">
+                      <span className="w-10 md:w-12 text-sm md:text-base font-light text-[#554C51] flex-shrink-0">1月</span>
+                      <span className="text-sm md:text-base font-light text-[#909397]">DXコンサルティング事業を開始</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2026年 - 2月（年は省略） */}
+                <div className="flex">
+                  {/* 年（左カラム）- 空白 */}
+                  <div className="w-16 md:w-20 flex-shrink-0"></div>
+                  {/* タイムライン（中央） */}
+                  <div className="relative flex flex-col items-center">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#554C51]/70 flex-shrink-0 mt-1.5"></div>
+                    <div className="w-px bg-[#554C51]/30 flex-grow"></div>
+                  </div>
+                  {/* 内容（右カラム） */}
+                  <div className="flex-grow pl-4 md:pl-6 pb-10 md:pb-12">
+                    <div className="flex items-baseline">
+                      <span className="w-10 md:w-12 text-sm md:text-base font-light text-[#554C51] flex-shrink-0">2月</span>
+                      <span className="text-sm md:text-base font-light text-[#909397]">事業拡大のため事務所を移転</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2026年 - 3月（年は省略、最後の項目） */}
+                <div className="flex">
+                  {/* 年（左カラム）- 空白 */}
+                  <div className="w-16 md:w-20 flex-shrink-0"></div>
+                  {/* タイムライン（中央） */}
+                  <div className="relative flex flex-col items-center">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#554C51]/70 flex-shrink-0 mt-1.5"></div>
+                  </div>
+                  {/* 内容（右カラム） */}
+                  <div className="flex-grow pl-4 md:pl-6">
+                    <div className="flex items-baseline">
+                      <span className="w-10 md:w-12 text-sm md:text-base font-light text-[#554C51] flex-shrink-0">3月</span>
+                      <span className="text-sm md:text-base font-light text-[#909397]">コーポレートサイト公開</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
