@@ -245,6 +245,30 @@ export default function Recruit() {
           </div>
         </section>
 
+        {/* 募集職種 Section */}
+        <section className="bg-white py-20 md:py-32">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
+                募集職種
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="text-sm md:text-base font-light">募集職種A. AI・DXコンサルタント / PM（顧客折衝、要件定義、プロジェクト推進 等）</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="text-sm md:text-base font-light">募集職種B. AIエンジニア（データ分析、アルゴリズム構築・実装、小規模システム設計・実装）</span>
+                </li>
+              </ul>
+            </ScrollAnimation>
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
