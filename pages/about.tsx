@@ -107,73 +107,74 @@ export default function About() {
           </div>
         </section>
 
-        {/* Profile & Biography Section */}
-        <section className="bg-white py-20 md:py-32">
-          <div className="mx-auto max-w-[1040px] px-6 sm:px-8 lg:px-12">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-
-              {/* Profile Image */}
+        {/* Message Section */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-[1200px] px-6 sm:px-8 lg:px-12">
+            <div className="grid md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-8 md:gap-10 lg:gap-14 items-start">
+              {/* Profile Image - 円形 */}
               <ScrollAnimation>
-                <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg bg-gray-50">
-                  <Image
-                    src="/image/profile.jpg"
-                    alt="代表取締役 齋藤達希"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </ScrollAnimation>
-
-              {/* Biography */}
-              <ScrollAnimation delay={0.2}>
-                <div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-8">
-                    経歴
-                  </h2>
-                  <div className="space-y-4 body-text leading-relaxed" style={{lineHeight: '1.9'}}>
-                    <p>
-                      千葉大学大学院修了後、日産自動車でデータ分析や経営企画に従事。アビームで経営改革支援に携わり、以後、リクルートなどでAI・データ活用の新規事業を推進。EAGLYSで経営企画を経て、2025年に越前市でビズリンクパートナーズを設立。コンサルタント・研究者・事業主という3つの立場を経験した知見を活かし、「データと経営をつなぐ地方創成の実践家」として活動している。
-                    </p>
+                <div className="flex justify-center md:justify-start">
+                  <div className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden">
+                    <Image
+                      src="/image/profile.jpg"
+                      alt="代表取締役 齋藤 達希"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
                   </div>
                 </div>
               </ScrollAnimation>
 
+              {/* Text Content */}
+              <ScrollAnimation delay={0.2}>
+                <div>
+                  {/* 引用符 + 見出し */}
+                  <div className="flex items-start gap-2 mb-4">
+                    <span className="text-4xl md:text-5xl font-light text-[#554C51]/30 leading-none select-none">"</span>
+                    <p className="text-base md:text-lg lg:text-xl font-light text-[#554C51] leading-relaxed pt-1">
+                      研究・コンサルティング・事業開発の知見を融合し、AIでビジネスを変革する
+                    </p>
+                  </div>
+
+                  {/* 本文 */}
+                  <div className="text-sm md:text-base font-light leading-relaxed mb-6 text-[#909397]" style={{lineHeight: '1.8'}}>
+                    <p>
+                      自動車会社での認知工学研究にキャリアの端を発し、大手コンサルティングファームでの戦略・業務改革、そしてAI・データ事業会社での実務推進と、一貫して「データと技術による価値創出」に従事してきました。金融、小売、製造、公共、人材、エンタテインメントなど、幅広い業界でのプロジェクト経験を持ち、特に近年は生成AI活用やDX組織の立ち上げにおいて多数の実績を有します。「コンサルタントの具体化力」「研究者のモデル化力」「事業主の推進力」を掛け合わせ、お客様のビジネスに実益をもたらすIT・AIソリューションを提供いたします。
+                    </p>
+                  </div>
+
+                  {/* 専門領域 */}
+                  <div className="mb-6">
+                    <p className="text-xs md:text-sm font-light text-[#554C51] mb-3">専門領域：</p>
+                    <ul className="space-y-1.5">
+                      <li className="flex items-start">
+                        <span className="inline-block w-1 h-1 bg-[#554C51]/50 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        <span className="text-sm font-light text-[#909397]"><span className="text-[#554C51]">事業開発・経営企画：</span> 新規事業・組織の立ち上げ、営業企画、管理会計導入</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-1 h-1 bg-[#554C51]/50 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        <span className="text-sm font-light text-[#909397]"><span className="text-[#554C51]">AI・データ活用：</span> 生成AIを活用した新サービス開発、需要予測、最適化アルゴリズム策定</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-1 h-1 bg-[#554C51]/50 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        <span className="text-sm font-light text-[#909397]"><span className="text-[#554C51]">プロジェクト推進：</span> ビジネスおよびIT/AI要件定義、PM/PMO業務</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* 署名 */}
+                  <div className="text-right">
+                    <p className="text-xs font-light text-[#909397]">
+                      株式会社ビズリンクパートナーズ 代表取締役
+                    </p>
+                    <p className="text-base md:text-lg font-light text-[#554C51] mt-0.5">
+                      齋藤 達希
+                    </p>
+                  </div>
+                </div>
+              </ScrollAnimation>
             </div>
-          </div>
-        </section>
-
-        {/* Message Section */}
-        <section className="bg-gray-50 py-20 md:py-32">
-          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
-            <ScrollAnimation>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center">
-                代表メッセージ
-              </h2>
-            </ScrollAnimation>
-
-            <ScrollAnimation delay={0.2}>
-              <div className="space-y-6 body-text leading-relaxed">
-                <p>
-                  テクノロジーは企業の可能性を広げます。AI・DXは単なる技術ではなく、事業成長のための強力な道具です。私たちは、この道具を最大限に活用し、企業の競争力を高めるお手伝いをします。
-                </p>
-                <p>
-                  越前市という地方都市から、全国へ、そして世界へ。地域に根ざしながらも、常に先進的な技術とビジョンを持ち続けることで、未来のビジネスをつくっていきます。
-                </p>
-                <p>
-                  お客様と共に歩み、共に成長する。そんなパートナーシップを大切にしながら、確かな価値を提供してまいります。
-                </p>
-              </div>
-
-              <div className="mt-12 text-right">
-                <p className="small-text">
-                  株式会社ビズリンクパートナーズ
-                </p>
-                <p className="text-base md:text-lg font-light mt-2">
-                  代表取締役　齋藤達希
-                </p>
-              </div>
-            </ScrollAnimation>
           </div>
         </section>
 
