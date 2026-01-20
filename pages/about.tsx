@@ -187,6 +187,42 @@ export default function About() {
           </div>
         </section>
 
+        {/* わたしたちの問題意識 Section */}
+        <section className="bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
+            <ScrollAnimation>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-12 text-center text-[#554C51]">
+                わたしたちの問題意識
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <div className="text-sm md:text-base font-light text-[#909397]" style={{lineHeight: '1.8'}}>
+                <p className="mb-6">
+                  日本は現在、自分・他人・会社・国という４つの信頼すべてが同時に崩れ落ちる、未曾有の負の連鎖の中にある。
+                <br></br>
+                  日本を支えていた『安心社会』が崩れたことで、他人は警戒すべき対象となり、会社へのエンゲージメントは世界最低水準に落ち込んだそして、変わらない国への失望が、最終的に『自分は何をやっても無駄だ』という自己肯定感の欠如へとつながっている。
+                </p>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.3}>
+              <div className="mt-10 flex justify-center">
+                <div className="relative w-full max-w-[800px]">
+                  <Image
+                    src="/image/problem-awareness.png"
+                    alt="負の連鎖の図解"
+                    width={800}
+                    height={450}
+                    className="w-full h-auto"
+                    style={{ maxWidth: '100%' }}
+                  />
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
         {/* 経営理念 Section */}
         <section className="bg-white py-16 md:py-24">
           <div className="mx-auto max-w-[840px] px-6 sm:px-8 lg:px-12">
