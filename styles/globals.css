@@ -68,6 +68,32 @@ body {
 .header-link {
   color: #554C51;
   @apply text-sm font-light tracking-wide transition-smooth;
+  position: relative;
+}
+
+/* 下線用の疑似要素 */
+.header-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: #554C51;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+/* hover時・キーボードフォーカス時に下線を表示 */
+.header-link:hover::after,
+.header-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* activeメニュー（inactiveクラスがない場合）は常時下線表示 */
+.header-link:not(.inactive)::after {
+  transform: scaleX(1);
 }
 
 .header-link:hover {
@@ -76,6 +102,13 @@ body {
 
 .header-link.inactive {
   opacity: 0.7;
+}
+
+/* prefers-reduced-motion対応：アニメーションを無効化 */
+@media (prefers-reduced-motion: reduce) {
+  .header-link::after {
+    transition: none;
+  }
 }
 
 /* Animation utilities */
