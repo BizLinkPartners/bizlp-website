@@ -207,51 +207,39 @@ export default function Layout({ title = 'BizLP', description = 'Business landin
       <main className="flex-1 pt-20">{children}</main>
       
       {/* Minimal Footer */}
-      <footer className="bg-[#554C51] py-12">
+      <footer className="bg-[#554C51] py-10">
         <div className="container-responsive">
-          {/* Footer Links */}
-          <nav className="mb-8">
-            <ul className="flex flex-wrap justify-center gap-6 md:gap-8">
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
-                >
-                  プライバシーポリシー
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
-                >
-                  利用規約
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/disclaimer"
-                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
-                >
-                  免責事項
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/antisocial"
-                  className="text-sm font-light tracking-wide text-white hover:opacity-70 transition-opacity"
-                >
-                  反社会的勢力排除
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Copyright */}
-          <div className="text-center">
-            <p className="text-sm text-white/80 font-light tracking-wide">
-              © {new Date().getFullYear()} BizLink Partners Co., Ltd.
+          {/* 上段：会社名（左寄り） / 住所（中央寄り） */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 mb-4">
+            <p className="text-xs font-light tracking-wide text-white">
+              株式会社ビズリンクパートナーズ
             </p>
+            <p className="text-xs font-light tracking-wide text-white">
+              〒 915-0075 福井県越前市幸町５番１０号
+            </p>
+            <div className="hidden md:block"></div>
+          </div>
+
+          {/* 中段：電話・FAX（〒の下にTが揃うように同じグリッド構造） */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 mb-8">
+            <div className="hidden md:block"></div>
+            <p className="text-xs font-light tracking-wide text-white">
+              T.XX-XXXX-XXXX / F.XX-XXXX-XXXX
+            </p>
+            <div className="hidden md:block"></div>
+          </div>
+
+          {/* 下段：©表記（左寄り） + Privacy policy（その右隣） */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <p className="text-xs text-white/80 font-light tracking-wide">
+              © {new Date().getFullYear()} BizLink Partners Co., Ltd
+            </p>
+            <Link
+              href="/privacy"
+              className="text-xs font-light tracking-wide text-white hover:opacity-70 transition-opacity"
+            >
+              Privacy policy
+            </Link>
           </div>
         </div>
       </footer>
