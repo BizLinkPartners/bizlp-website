@@ -29,14 +29,6 @@ export default function Recruit() {
                 <table className="w-full">
                   <tbody className="divide-y divide-gray-200">
                     <tr className="hover:bg-gray-50 transition-colors">
-                      <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base w-1/3 align-top">
-                        職種
-                      </th>
-                      <td className="px-6 py-5 font-light text-sm md:text-base">
-                        ITコンサルタントおよびPM/PMO職
-                      </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
                         雇用形態
                       </th>
