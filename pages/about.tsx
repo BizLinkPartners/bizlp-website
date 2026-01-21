@@ -23,7 +23,7 @@ export default function About() {
               <div className="overflow-hidden border border-gray-200">
                 <table className="w-full">
                   <tbody className="divide-y divide-gray-200">
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base w-1/3">
                         会社名
                       </th>
@@ -31,7 +31,7 @@ export default function About() {
                         株式会社ビズリンクパートナーズ ／ BizLink Partners Co., Ltd.
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         代表取締役
                       </th>
@@ -39,7 +39,7 @@ export default function About() {
                         齋藤 達希
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         所在地
                       </th>
@@ -47,7 +47,7 @@ export default function About() {
                         〒915-0075 福井県越前市幸町５番１０号
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         設立
                       </th>
@@ -55,7 +55,7 @@ export default function About() {
                         2025年11月
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         資本金
                       </th>
@@ -63,7 +63,7 @@ export default function About() {
                         3,000,000円
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         従業員数
                       </th>
@@ -71,7 +71,7 @@ export default function About() {
                         1名（2026年1月現在）
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base align-top">
                         事業内容
                       </th>
@@ -92,7 +92,7 @@ export default function About() {
                         </ul>
                       </td>
                     </tr>
-                    <tr className="hover:bg-gray-50 transition-colors">
+                    <tr>
                       <th className="text-left px-6 py-5 bg-gray-50 font-light text-sm md:text-base">
                         主要取引銀行
                       </th>
