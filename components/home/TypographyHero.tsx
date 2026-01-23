@@ -12,7 +12,7 @@ import ScrollIndicatorRight from '@/components/ScrollIndicatorRight';
  */
 
 // メインコピー
-const MAIN_COPY = ['「信じる」を科学する'];
+const MAIN_COPY = ['「信じあえる」を科学する'];
 
 // サブコピー（文ごとに配列化）
 const SUB_COPY_LINES = [

@@ -12,7 +12,7 @@ type Props = {
 export default function Home({ latestNews }: Props) {
 
   return (
-    <Layout title="BizLP | ホーム" description="「信じる」を科学する - 株式会社ビズリンクパートナーズ">
+    <Layout title="BizLP | ホーム" description="「信じあえる」を科学する - 株式会社ビズリンクパートナーズ">
       {/* Hero Section - タイポグラフィ中心のヒーロー */}
       <TypographyHero />
 
