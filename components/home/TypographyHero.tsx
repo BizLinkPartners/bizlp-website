@@ -84,7 +84,7 @@ export default function TypographyHero() {
           }}
           className="mb-12 sm:mb-16"
         >
-          <div className="text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left pl-12">
+          <div className="text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left ml-[clamp(30px,5vw,120px)]">
             {SUB_COPY_LINES.map((line, index) => (
               <p key={index} className="whitespace-nowrap">
                 {line}
@@ -92,7 +92,7 @@ export default function TypographyHero() {
             ))}
           </div>
           {/* 会社名（Follow Us風） */}
-          <p className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap pl-12">
+          <p className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap ml-[clamp(30px,5vw,120px)]">
             株式会社ビズリンクパートナーズ
           </p>
         </motion.div>
