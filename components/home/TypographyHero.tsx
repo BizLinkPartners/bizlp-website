@@ -65,7 +65,7 @@ export default function TypographyHero() {
               <motion.h1
                 key={index}
                 variants={itemVariants}
-                className="text-[clamp(40px,9vw,160px)] font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
+                className="text-[clamp(24px,9vw,160px)] font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
               >
                 {token}
               </motion.h1>
