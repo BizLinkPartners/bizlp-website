@@ -85,7 +85,7 @@ export default function TypographyHero() {
           className="mb-12 sm:mb-16"
         >
           <div
-            className="text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left"
+            className="sub-copy-margin text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left"
             style={{ marginLeft: 'calc(clamp(24px, 9vw, 160px) * 0.5)' }}
           >
             {SUB_COPY_LINES.map((line, index) => (
@@ -96,7 +96,7 @@ export default function TypographyHero() {
           </div>
           {/* 会社名（Follow Us風） */}
           <p
-            className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap"
+            className="sub-copy-margin mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap"
             style={{ marginLeft: 'calc(clamp(24px, 9vw, 160px) * 0.5)' }}
           >
             株式会社ビズリンクパートナーズ
