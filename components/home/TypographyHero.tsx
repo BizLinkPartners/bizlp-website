@@ -9,6 +9,7 @@ import ScrollIndicatorRight from '@/components/ScrollIndicatorRight';
  * - 大きなタイポグラフィと余白を重視
  * - モノクローム配色
  * - 上寄せ配置
+ * - フォント: Noto Sans JP（全デバイスで統一）
  */
 
 // メインコピー
@@ -49,7 +50,7 @@ const itemVariants = {
 };
 
 export default function TypographyHero() {
-  // CSS変数でメインコピーのフォントサイズを定義し、マージンやサブコピーのサイズに使い回す
+  // CSS変数でメインコピーのフォントサイズを定義（マージン計算にも使用）
   const cssVars = {
     '--main-font-size': 'clamp(20px, 6.5vw, 160px)',
   } as React.CSSProperties;
@@ -61,7 +62,7 @@ export default function TypographyHero() {
     >
       {/* メインコンテンツ */}
       <div className="container-responsive px-4 sm:px-8 md:px-12 lg:px-16">
-        {/* メインコピー - 巨大タイポグラフィ（左寄せ） */}
+        {/* メインコピー - 巨大タイポグラフィ（左寄せ）- Noto Sans JP Black */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -73,8 +74,12 @@ export default function TypographyHero() {
               <motion.h1
                 key={index}
                 variants={itemVariants}
-                className="font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
-                style={{ fontSize: 'var(--main-font-size)' }}
+                className="text-black tracking-tight leading-[0.95] whitespace-nowrap"
+                style={{
+                  fontSize: 'var(--main-font-size)',
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  fontWeight: 900,
+                }}
               >
                 {token}
               </motion.h1>
@@ -82,7 +87,7 @@ export default function TypographyHero() {
           </div>
         </motion.div>
 
-        {/* サブコピー - 本文（左寄せ、「信」の左端に揃える） */}
+        {/* サブコピー - 本文（左寄せ、「信」の左端に揃える）- Noto Sans JP Regular */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,11 +98,13 @@ export default function TypographyHero() {
           }}
           className="mb-12 sm:mb-16"
         >
-          {/* 「信」の位置に揃える */}
+          {/* 「信」の位置に揃える（Noto Sans JPで統一されているため、1文字分のマージンで正確に揃う） */}
           <div
-            className="text-[clamp(10px,1.4vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left"
+            className="text-[clamp(10px,1.4vw,18px)] text-black/75 max-w-[58ch] leading-relaxed text-left"
             style={{
-              marginLeft: 'calc(var(--main-font-size) * 0.6)',
+              marginLeft: 'var(--main-font-size)',
+              fontFamily: '"Noto Sans JP", sans-serif',
+              fontWeight: 400,
             }}
           >
             {SUB_COPY_LINES.map((line, index) => (
@@ -106,11 +113,13 @@ export default function TypographyHero() {
               </p>
             ))}
           </div>
-          {/* 会社名 */}
+          {/* 会社名 - Noto Sans JP Light */}
           <p
-            className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap"
+            className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 tracking-wide whitespace-nowrap"
             style={{
-              marginLeft: 'calc(var(--main-font-size) * 0.6)',
+              marginLeft: 'var(--main-font-size)',
+              fontFamily: '"Noto Sans JP", sans-serif',
+              fontWeight: 300,
             }}
           >
             株式会社ビズリンクパートナーズ

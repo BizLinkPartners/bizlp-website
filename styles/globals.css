@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -189,12 +189,4 @@ body {
   border-radius: 14px;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15), -6px -6px 12px rgba(255, 255, 255, 0.7);
 }
-
-/* スマホ用SUB_COPY marginLeft調整（「信」の真下に合わせる） */
-@media (max-width: 639px) {
-  .sub-copy-margin {
-    margin-left: calc(clamp(24px, 9vw, 160px) * 1) !important;
-  }
-}
-
 
