@@ -49,8 +49,16 @@ const itemVariants = {
 };
 
 export default function TypographyHero() {
+  // CSS変数でメインコピーのフォントサイズを定義し、マージンやサブコピーのサイズに使い回す
+  const cssVars = {
+    '--main-font-size': 'clamp(20px, 6.5vw, 160px)',
+  } as React.CSSProperties;
+
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-60 md:pt-40 pb-20 text-black">
+    <section
+      className="relative min-h-screen bg-white overflow-hidden pt-60 md:pt-40 pb-20 text-black"
+      style={cssVars}
+    >
       {/* メインコンテンツ */}
       <div className="container-responsive px-4 sm:px-8 md:px-12 lg:px-16">
         {/* メインコピー - 巨大タイポグラフィ（左寄せ） */}
@@ -65,7 +73,8 @@ export default function TypographyHero() {
               <motion.h1
                 key={index}
                 variants={itemVariants}
-                className="text-[clamp(24px,9vw,160px)] font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
+                className="font-bold text-black tracking-tight leading-[0.95] font-sans whitespace-nowrap"
+                style={{ fontSize: 'var(--main-font-size)' }}
               >
                 {token}
               </motion.h1>
@@ -73,7 +82,7 @@ export default function TypographyHero() {
           </div>
         </motion.div>
 
-        {/* サブコピー - 本文（左寄せ） */}
+        {/* サブコピー - 本文（左寄せ、「信」の左端に揃える） */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,9 +93,12 @@ export default function TypographyHero() {
           }}
           className="mb-12 sm:mb-16"
         >
+          {/* 「信」の位置に揃える */}
           <div
-            className="sub-copy-margin text-[clamp(9px,1.2vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left"
-            style={{ marginLeft: 'calc(clamp(24px, 9vw, 160px) * 0.5)' }}
+            className="text-[clamp(10px,1.4vw,18px)] text-black/75 max-w-[58ch] leading-relaxed font-normal text-left"
+            style={{
+              marginLeft: 'calc(var(--main-font-size) * 0.6)',
+            }}
           >
             {SUB_COPY_LINES.map((line, index) => (
               <p key={index} className="whitespace-nowrap">
@@ -94,10 +106,12 @@ export default function TypographyHero() {
               </p>
             ))}
           </div>
-          {/* 会社名（Follow Us風） */}
+          {/* 会社名 */}
           <p
-            className="sub-copy-margin mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap"
-            style={{ marginLeft: 'calc(clamp(24px, 9vw, 160px) * 0.5)' }}
+            className="mt-10 sm:mt-12 text-xs sm:text-sm text-black/70 font-light tracking-wide whitespace-nowrap"
+            style={{
+              marginLeft: 'calc(var(--main-font-size) * 0.6)',
+            }}
           >
             株式会社ビズリンクパートナーズ
           </p>
